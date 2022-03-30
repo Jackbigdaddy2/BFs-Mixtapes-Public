@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="LowEffortQuincy.png">
+	<SubTexture name="Quincy Idle Dance0000" x="0" y="0" width="786" height="1000"/>
+	<SubTexture name="Quincy LEFT0000" x="0" y="1000" width="786" height="1000"/>
+	<SubTexture name="Quincy DOWN0000" x="0" y="2000" width="786" height="1000"/>
+	<SubTexture name="Quincy UP0000" x="0" y="3000" width="786" height="1000"/>
+	<SubTexture name="Quincy RIGHT0000" x="0" y="4000" width="786" height="1000"/>
+</TextureAtlas>

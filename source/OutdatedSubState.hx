@@ -23,7 +23,7 @@ class OutdatedSubState extends MusicBeatState
 	override function create()
 	{
 		super.create();
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.loadImage('week54prototype', 'shared'));
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.loadImage('stageback', 'shared'));
 		bg.scale.x *= 1.55;
 		bg.scale.y *= 1.55;
 		bg.screenCenter();
@@ -40,20 +40,20 @@ class OutdatedSubState extends MusicBeatState
 		add(kadeLogo);
 
 		var txt:FlxText = new FlxText(0, 0, FlxG.width,
-			"Your Kade Engine is outdated!\nYou are on "
-			+ MainMenuState.kadeEngineVer
+			"Mixtapes is outdated!\nYou are on "
+			+ MainMenuState.mixtapesVer
 			+ "\nwhile the most recent version is "
 			+ needVer
 			+ "."
 			+ "\n\nWhat's new:\n\n"
 			+ currChanges
 			+ "\n& more changes and bugfixes in the full changelog"
-			+ "\n\nPress Space to view the full changelog and update\nor ESCAPE to ignore this",
+			+ "\n\nPress Space to update\nor ESCAPE to ignore this",
 			32);
 
 		if (MainMenuState.nightly != "")
 			txt.text = "You are on\n"
-				+ MainMenuState.kadeEngineVer
+				+ MainMenuState.mixtapesVer
 				+ "\nWhich is a PRE-RELEASE BUILD!"
 				+ "\n\nReport all bugs to the author of the pre-release.\nSpace/Escape ignores this.";
 
@@ -97,7 +97,7 @@ class OutdatedSubState extends MusicBeatState
 	{
 		if (controls.ACCEPT && MainMenuState.nightly == "")
 		{
-			fancyOpenURL("https://kadedev.github.io/Kade-Engine/changelogs/changelog-" + needVer);
+			fancyOpenURL("https://gamejolt.com/games/boyfriendsmixtapes/704517");
 		}
 		else if (controls.ACCEPT)
 		{

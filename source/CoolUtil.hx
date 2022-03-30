@@ -6,7 +6,11 @@ using StringTools;
 
 class CoolUtil
 {
+	#if OneDifficulty
+	public static var difficultyArray:Array<String> = ["Normal"];
+	#else
 	public static var difficultyArray:Array<String> = ['Easy', "Normal", "Hard"];
+	#end
 
 	public static var daPixelZoom:Float = 6;
 

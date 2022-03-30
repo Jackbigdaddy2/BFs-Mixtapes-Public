@@ -1,0 +1,35 @@
+{
+  "name": "Nitwit Villager",
+  "asset": "characters/Villager",
+  "barColor": "#B57B67",
+  "startingAnim": "idle",
+  "camPos": [400, -100],
+  "camFollow": [20, 0],
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "Villager Idle Dance",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singUP",
+      "prefix": "Villager UP",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "Villager RIGHT",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "Villager DOWN",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "Villager LEFT",
+      "offsets": [0, 0]
+    }
+  ]
+}

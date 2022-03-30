@@ -1,0 +1,37 @@
+{
+  "name": "Boyfriend (From "A")",
+  "asset": "characters/abf",
+  "barColor": "#FFFFFF",
+  "antialiasing": false,
+  "scale": 3,
+  "startingAnim": "idle",
+  "flipX": true,
+  "camFollow": [-125, -120],
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "a BF Idle",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singUP",
+      "prefix": "a BF Up",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "a BF Left",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "a BF Left",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "a BF Down",
+      "offsets": [0, 0]
+    }
+  ]
+}

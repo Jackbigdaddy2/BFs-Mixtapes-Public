@@ -1,0 +1,34 @@
+{
+  "name": "Eliot",
+  "asset": "characters/Eliot",
+  "barColor": "#1739E2",
+  "startingAnim": "idle",
+  "camPos": [0, 0],
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "Eliot Idle Dance",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singUP",
+      "prefix": "Eliot UP",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "Eliot RIGHT",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "Eliot DOWN",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "Eliot LEFT",
+      "offsets": [0, 0]
+    }
+  ]
+}

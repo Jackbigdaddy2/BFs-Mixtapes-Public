@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Villager.png">
+	<SubTexture name="Villager Idle Dance0000" x="0" y="0" width="900" height="900"/>
+	<SubTexture name="Villager Idle Dance0001" x="0" y="0" width="900" height="900"/>
+	<SubTexture name="Villager Idle Dance0002" x="901" y="0" width="900" height="900"/>
+	<SubTexture name="Villager Idle Dance0003" x="901" y="0" width="900" height="900"/>
+	<SubTexture name="Villager Idle Dance0004" x="1801" y="0" width="900" height="900"/>
+	<SubTexture name="Villager Idle Dance0005" x="1801" y="0" width="900" height="900"/>
+	<SubTexture name="Villager Idle Dance0006" x="901" y="0" width="900" height="900"/>
+	<SubTexture name="Villager Idle Dance0007" x="901" y="0" width="900" height="900"/>
+	<SubTexture name="Villager Idle Dance0008" x="0" y="0" width="900" height="900"/>
+	<SubTexture name="Villager Idle Dance0009" x="0" y="0" width="900" height="900"/>
+	<SubTexture name="Villager LEFT0000" x="0" y="901" width="900" height="900"/>
+	<SubTexture name="Villager LEFT0001" x="0" y="901" width="900" height="900"/>
+	<SubTexture name="Villager LEFT0002" x="901" y="901" width="900" height="900"/>
+	<SubTexture name="Villager LEFT0003" x="901" y="901" width="900" height="900"/>
+	<SubTexture name="Villager DOWN0000" x="0" y="1801" width="900" height="900"/>
+	<SubTexture name="Villager DOWN0001" x="0" y="1801" width="900" height="900"/>
+	<SubTexture name="Villager DOWN0002" x="901" y="1801" width="900" height="900"/>
+	<SubTexture name="Villager DOWN0002" x="901" y="1801" width="900" height="900"/>
+	<SubTexture name="Villager UP0000" x="0" y="2701" width="900" height="900"/>
+	<SubTexture name="Villager UP0001" x="0" y="2701" width="900" height="900"/>
+	<SubTexture name="Villager UP0002" x="901" y="2701" width="900" height="900"/>
+	<SubTexture name="Villager UP0003" x="901" y="2701" width="900" height="900"/>
+	<SubTexture name="Villager RIGHT0000" x="0" y="3601" width="900" height="900"/>
+	<SubTexture name="Villager RIGHT0001" x="0" y="3601" width="900" height="900"/>
+	<SubTexture name="Villager RIGHT0002" x="901" y="3601" width="900" height="900"/>
+	<SubTexture name="Villager RIGHT0003" x="901" y="3601" width="900" height="900"/>
+</TextureAtlas>

@@ -198,8 +198,13 @@ class ChartingState extends MusicBeatState
 			}
 			else
 			{
+				#if OneDifficulty
+				var diff:String = [""][PlayState.storyDifficulty];
+				_song = Song.conversionChecks(Song.loadFromJson(PlayState.SONG.songId, diff));
+				#else
 				var diff:String = ["-easy", "", "-hard"][PlayState.storyDifficulty];
 				_song = Song.conversionChecks(Song.loadFromJson(PlayState.SONG.songId, diff));
+				#end
 			}
 		}
 		else
@@ -218,7 +223,8 @@ class ChartingState extends MusicBeatState
 				noteStyle: 'normal',
 				stage: 'stage',
 				speed: 1,
-				validScore: false
+				validScore: false,
+				mania: 0
 			};
 		}
 
@@ -1535,8 +1541,13 @@ class ChartingState extends MusicBeatState
 			}
 			else
 			{
+				#if OneDifficulty
+				var diff:String = [""][PlayState.storyDifficulty];
+				_song = Song.conversionChecks(Song.loadFromJson(PlayState.SONG.songId, diff));
+				#else
 				var diff:String = ["-easy", "", "-hard"][PlayState.storyDifficulty];
 				_song = Song.conversionChecks(Song.loadFromJson(PlayState.SONG.songId, diff));
+				#end
 			}
 		}
 		else
@@ -3475,7 +3486,11 @@ class ChartingState extends MusicBeatState
 
 	function loadJson(songId:String):Void
 	{
+		#if OneDifficulty
+		var difficultyArray:Array<String> = [""];
+		#else
 		var difficultyArray:Array<String> = ["-easy", "", "-hard"];
+		#end
 
 		PlayState.SONG = Song.loadFromJson(songId, difficultyArray[PlayState.storyDifficulty]);
 
@@ -3580,7 +3595,11 @@ class ChartingState extends MusicBeatState
 
 	private function saveLevel()
 	{
+		#if OneDifficulty
+		var difficultyArray:Array<String> = [""];
+		#else
 		var difficultyArray:Array<String> = ["-easy", "", "-hard"];
+		#end
 
 		var toRemove = [];
 

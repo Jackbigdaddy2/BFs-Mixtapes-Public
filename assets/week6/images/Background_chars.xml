@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Background_chars.png">
+	<SubTexture name="Dance0000" x="0" y="0" width="1600" height="900"/>
+	<SubTexture name="Dance0001" x="0" y="0" width="1600" height="900"/>
+	<SubTexture name="Dance0002" x="0" y="901" width="1600" height="900"/>
+	<SubTexture name="Dance0003" x="0" y="901" width="1600" height="900"/>
+	<SubTexture name="Dance0004" x="0" y="1801" width="1600" height="900"/>
+	<SubTexture name="Dance0005" x="0" y="1801" width="1600" height="900"/>
+</TextureAtlas>

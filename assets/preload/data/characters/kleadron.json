@@ -1,0 +1,17 @@
+{
+  "name": "Kleadron",
+  "asset": "characters/KleadronDance",
+  "barColor": "#FF9933",
+  "camPos": [200, -50],
+  "camFollow": [-140, -100],
+  "scale": 2,
+  "antialiasing": false,
+  "startingAnim": "idle",
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "KleadronDance",
+      "offsets": [0, 0]
+    }
+  ]
+}

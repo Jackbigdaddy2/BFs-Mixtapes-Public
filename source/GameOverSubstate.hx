@@ -23,8 +23,14 @@ class GameOverSubstate extends MusicBeatSubstate
 			case 'bf-pixel':
 				stageSuffix = '-pixel';
 				daBf = 'bf-pixel-dead';
+			case 'bf-holding-gf':
+				daBf = 'bf-holding-gf-dead';
+			case 'djprince':
+				daBf = 'bf-dead'; // daBf = 'djprince-dead'; // Still Broken :(
+			case 'big-pixel':
+				daBf = 'big-pixel-dead';
 			default:
-				daBf = 'bf';
+				daBf = 'bf-dead';
 		}
 
 		super();
@@ -37,7 +43,10 @@ class GameOverSubstate extends MusicBeatSubstate
 		camFollow = new FlxObject(bf.getGraphicMidpoint().x, bf.getGraphicMidpoint().y, 1, 1);
 		add(camFollow);
 
-		FlxG.sound.play(Paths.sound('fnf_loss_sfx' + stageSuffix));
+		if (PlayState.SONG.song.toLowerCase() == 'nitwit')
+			FlxG.sound.play(Paths.sound('MC_loss_sfx'));
+		else
+			FlxG.sound.play(Paths.sound('fnf_loss_sfx' + stageSuffix));
 		Conductor.changeBPM(100);
 
 		// FlxG.camera.followLerp = 1;

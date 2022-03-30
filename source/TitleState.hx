@@ -133,12 +133,20 @@ class TitleState extends MusicBeatState
 
 		if (Main.watermarks)
 		{
+			#if Ultrawide
+			logoBl = new FlxSprite(-150 + 220, 1500);
+			#else
 			logoBl = new FlxSprite(-150, 1500);
+			#end
 			logoBl.frames = Paths.getSparrowAtlas('KadeEngineLogoBumpin');
 		}
 		else
 		{
+			#if Ultrawide
+			logoBl = new FlxSprite(-150 + 220, -100);
+			#else
 			logoBl = new FlxSprite(-150, -100);
+			#end
 			logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
 		}
 		logoBl.antialiasing = FlxG.save.data.antialiasing;
@@ -155,7 +163,11 @@ class TitleState extends MusicBeatState
 		add(gfDance);
 		add(logoBl);
 
+		#if Ultrawide
+		titleText = new FlxSprite(100 + 220, FlxG.height * 0.8);
+		#else
 		titleText = new FlxSprite(100, FlxG.height * 0.8);
+		#end
 		titleText.frames = Paths.getSparrowAtlas('titleEnter');
 		titleText.animation.addByPrefix('idle', "Press Enter to Begin", 24);
 		titleText.animation.addByPrefix('press', "ENTER PRESSED", 24);
@@ -223,7 +235,7 @@ class TitleState extends MusicBeatState
 			// music.loadStream(Paths.music('freakyMenu'));
 			// FlxG.sound.list.add(music);
 			// music.play();
-			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+			FlxG.sound.playMusic((FlxG.random.bool() ? Paths.music('freakyMenu') : Paths.music('freakyMenuOG')), 0);
 
 			FlxG.sound.music.fadeIn(4, 0, 0.7);
 			Conductor.changeBPM(102);
@@ -255,6 +267,7 @@ class TitleState extends MusicBeatState
 	{
 		if (FlxG.sound.music != null)
 			Conductor.songPosition = FlxG.sound.music.time;
+		// FlxG.watch.addQuick('amp', FlxG.sound.music.amplitude);
 
 		if (FlxG.keys.anyJustPressed([fullscreenBind]))
 		{
@@ -291,18 +304,19 @@ class TitleState extends MusicBeatState
 			{
 				// Get current version of Kade Engine
 
-				var http = new haxe.Http("https://raw.githubusercontent.com/KadeDev/Kade-Engine/master/version.downloadMe");
+				var http = new haxe.Http("https://raw.githubusercontent.com/bigdaddy2/BFs-Mixtapes-Public/master/version.downloadMe");
 				var returnedData:Array<String> = [];
 
 				http.onData = function(data:String)
 				{
 					returnedData[0] = data.substring(0, data.indexOf(';'));
 					returnedData[1] = data.substring(data.indexOf('-'), data.length);
-					if (!MainMenuState.kadeEngineVer.contains(returnedData[0].trim()) && !OutdatedSubState.leftState)
+					if (!MainMenuState.mixtapesVer.contains(returnedData[0].trim()) && !OutdatedSubState.leftState)
 					{
-						trace('outdated lmao! ' + returnedData[0] + ' != ' + MainMenuState.kadeEngineVer);
+						trace('outdated lmao! ' + returnedData[0] + ' != ' + MainMenuState.mixtapesVer);
 						OutdatedSubState.needVer = returnedData[0];
 						OutdatedSubState.currChanges = returnedData[1];
+						// FlxG.switchState(new MainMenuState());
 						FlxG.switchState(new OutdatedSubState());
 						clean();
 					}
@@ -381,58 +395,46 @@ class TitleState extends MusicBeatState
 				deleteCoolText();
 			case 1:
 				createCoolText(['ninjamuffin99', 'phantomArcade', 'kawaisprite', 'evilsk8er']);
-			// credTextShit.visible = true;
 			case 3:
-				addMoreText('present');
-			// credTextShit.text += '\npresent...';
-			// credTextShit.addText();
+				deleteCoolText();
 			case 4:
-				deleteCoolText();
-			// credTextShit.visible = false;
-			// credTextShit.text = 'In association \nwith';
-			// credTextShit.screenCenter();
-			case 5:
-				if (Main.watermarks)
-					createCoolText(['Kade Engine', 'by']);
-				else
-					createCoolText(['In Partnership', 'with']);
+				createCoolText(['XG', 'bigdaddy2']);
+			case 6:
+				addMoreText('present');
 			case 7:
-				if (Main.watermarks)
-					addMoreText('KadeDeveloper');
-				else
-				{
-					addMoreText('Newgrounds');
-					ngSpr.visible = true;
-				}
-			// credTextShit.text += '\nNewgrounds';
+				deleteCoolText();
 			case 8:
-				deleteCoolText();
-				ngSpr.visible = false;
-			// credTextShit.visible = false;
-
-			// credTextShit.text = 'Shoutouts Tom Fulp';
-			// credTextShit.screenCenter();
+				addMoreText('With art by');
 			case 9:
-				createCoolText([curWacky[0]]);
-			// credTextShit.visible = true;
+				addMoreText('GriffTheOne');
+				addMoreText('Edd');
+				addMoreText('JoNUTan');
+				addMoreText('Rhy');
+			// addMoreText('Spookley'); // never got sent the goddamn spookly sprites god fucking dammit. // its ok we have kleadron to replace them now :)
 			case 11:
-				addMoreText(curWacky[1]);
-			// credTextShit.text += '\nlmao';
-			case 12:
 				deleteCoolText();
-			// credTextShit.visible = false;
-			// credTextShit.text = "Friday";
-			// credTextShit.screenCenter();
-			case 13:
-				addMoreText('Friday');
-			// credTextShit.visible = true;
+			case 12:
+				createCoolText(['Kade Engine', 'by']);
 			case 14:
-				addMoreText('Night');
-			// credTextShit.text += '\nNight';
+				addMoreText('KadeDeveloper');
 			case 15:
-				addMoreText('Funkin'); // credTextShit.text += '\nFunkin';
-
+				deleteCoolText();
 			case 16:
+				createCoolText([curWacky[0]]);
+			case 17:
+				addMoreText(curWacky[1]);
+			case 20:
+				deleteCoolText();
+			case 21:
+				addMoreText('Friday');
+			case 22:
+				addMoreText('Night');
+			case 23:
+				addMoreText('Funkin');
+			case 24:
+				addMoreText('Boyfriends');
+				addMoreText('Mixtapes');
+			case 25:
 				skipIntro();
 		}
 	}

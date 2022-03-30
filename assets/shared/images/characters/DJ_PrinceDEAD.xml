@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="DJ_PrinceDEAD.png">
+	<SubTexture name="DJ Prince Dies0000" x="0" y="0" width="1600" height="900"/>
+	<SubTexture name="DJ Prince Dies0001" x="0" y="0" width="1600" height="900"/>
+	<SubTexture name="DJ Prince Dies0002" x="0" y="901" width="1600" height="900"/>
+	<SubTexture name="DJ Prince Dies0003" x="0" y="901" width="1600" height="900"/>
+	<SubTexture name="DJ Prince Dies0004" x="0" y="1801" width="1600" height="900"/>
+	<SubTexture name="DJ Prince Dies0005" x="0" y="1801" width="1600" height="900"/>
+	<SubTexture name="DJ Prince Dies0006" x="0" y="2701" width="1600" height="900"/>
+	<SubTexture name="DJ Prince Dies0007" x="0" y="2701" width="1600" height="900"/>
+	<SubTexture name="DJ Prince Dies0008" x="0" y="3601" width="1600" height="900"/>
+	<SubTexture name="DJ Prince Dies0009" x="0" y="3601" width="1600" height="900"/>
+	<SubTexture name="DJ Prince Dead Loop0000" x="0" y="4501" width="1600" height="900"/>
+	<SubTexture name="DJ Prince Dead Loop0001" x="0" y="4501" width="1600" height="900"/>
+	<SubTexture name="DJ Prince Dead Loop0002" x="0" y="5401" width="1600" height="900"/>
+	<SubTexture name="DJ Prince Dead Loop0003" x="0" y="5401" width="1600" height="900"/>
+	<SubTexture name="DJ Prince Dead Loop0004" x="0" y="6301" width="1600" height="900"/>
+	<SubTexture name="DJ Prince Dead Loop0005" x="0" y="6301" width="1600" height="900"/>
+	<SubTexture name="DJ Prince Dead Confirm0000" x="0" y="0" width="1600" height="900"/>
+	<SubTexture name="DJ Prince Dead Confirm0001" x="0" y="0" width="1600" height="900"/>
+</TextureAtlas>

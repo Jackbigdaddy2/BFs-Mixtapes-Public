@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="KleadronDance.png">
+	<SubTexture name="KleadronDance0000" x="0" y="0" width="200" height="200"/>
+	<SubTexture name="KleadronDance0001" x="0" y="0" width="200" height="200"/>
+	<SubTexture name="KleadronDance0002" x="201" y="0" width="200" height="200"/>
+	<SubTexture name="KleadronDance0003" x="201" y="0" width="200" height="200"/>
+	<SubTexture name="KleadronDance0004" x="401" y="0" width="200" height="200"/>
+	<SubTexture name="KleadronDance0005" x="401" y="0" width="200" height="200"/>
+	<SubTexture name="KleadronDance0006" x="601" y="0" width="200" height="200"/>
+	<SubTexture name="KleadronDance0007" x="601" y="0" width="200" height="200"/>
+	<SubTexture name="KleadronDance0008" x="0" y="201" width="200" height="200"/>
+	<SubTexture name="KleadronDance0009" x="0" y="201" width="200" height="200"/>
+	<SubTexture name="KleadronDance0010" x="201" y="201" width="200" height="200"/>
+	<SubTexture name="KleadronDance0011" x="201" y="201" width="200" height="200"/>
+	<SubTexture name="KleadronDance0012" x="401" y="201" width="200" height="200"/>
+	<SubTexture name="KleadronDance0013" x="401" y="201" width="200" height="200"/>
+</TextureAtlas>

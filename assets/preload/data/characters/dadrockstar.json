@@ -1,0 +1,34 @@
+{
+  "name": "Rockstar Dearest",
+  "asset": "characters/Dad_Rockstar",
+  "barColor": "#AF66CE",
+  "startingAnim": "idle",
+  "camPos": [400, 0],
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "Young Dad Idle",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singUP",
+      "prefix": "Up Note",
+      "offsets": [36, 26]
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "Left Note",
+      "offsets": [41, -15]
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "Right Note",
+      "offsets": [0, 27]
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "Down Note",
+      "offsets": [-15, -123]
+    }
+  ]
+}

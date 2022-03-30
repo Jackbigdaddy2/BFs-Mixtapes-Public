@@ -1,0 +1,36 @@
+{
+  "name": "Quincy",
+  "asset": "characters/LowEffortQuincy",
+  "barColor": "#EDA440",
+  "scale": 0.8,
+  "startingAnim": "idle",
+  "camPos": [200, 50],
+  "camFollow": [150, 225],
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "Quincy Idle Dance",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singUP",
+      "prefix": "Quincy UP",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "Quincy RIGHT",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "Quincy DOWN",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "Quincy LEFT",
+      "offsets": [0, 0]
+    }
+  ]
+}

@@ -32,20 +32,77 @@ class Stage extends MusicBeatState
 	// All of the above must be set or used in your stage case code block!!
 	public var positions:Map<String, Map<String, Array<Int>>> = [
 		// Assign your characters positions on stage here!
-		'halloween' => ['spooky' => [100, 300], 'monster' => [100, 200]],
-		'philly' => ['pico' => [100, 400]],
-		'limo' => ['bf-car' => [1030, 230]],
+		'halloween' => [
+			'spooky' => [100, 300],
+			'monster' => [100, 200],
+			'monsterclassic' => [0, 100],
+			'dadrockstar' => [-50, 90],
+			'dhark' => [85, 170],
+			'dharky' => [830, 160],
+			'eliot' => [140, 240]
+		],
+		'philly' => ['pico' => [100, 400], 'griff' => [100, 400]],
+		'limo' => ['bf-car' => [1030, 230], 'bf' => [1030, 230], 'big' => [1030, 230]],
+		'wainbowbwide' => ['bf-car' => [1030, 230], 'bf' => [1030, 230], 'big' => [1030, 230]],
 		'mall' => ['bf-christmas' => [970, 450], 'parents-christmas' => [-400, 100]],
-		'mallEvil' => ['bf-christmas' => [1090, 450], 'monster-christmas' => [100, 150]],
+		'mallEvil' => [
+			'bf-christmas' => [1090, 450],
+			'monster-christmas' => [100, 150],
+			'monsterclassic' => [0, 100],
+			'dhark' => [0, 100],
+			'dharky' => [830, 160]
+		],
 		'school' => [
 			'gf-pixel' => [580, 430],
 			'bf-pixel' => [970, 670],
 			'senpai' => [250, 460],
-			'senpai-angry' => [250, 460]
+			'senpai-angry' => [250, 460],
+			'bf' => [0, 50]
 		],
-		'schoolEvil' => ['gf-pixel' => [580, 430], 'bf-pixel' => [970, 670], 'spirit' => [-50, 200]]
+		'schoolEvil' => [
+			'gf-pixel' => [580, 430],
+			'bf-pixel' => [970, 670],
+			'spirit' => [-50, 200],
+			'bf' => [0, 50]
+		],
+		'blockshowcase' => [
+			'gf-pixel' => [580, 430],
+			'bf-pixel' => [970, 670],
+			'senpai' => [250, 460],
+			'senpai-angry' => [250, 460],
+			'spirit' => [-50, 200],
+			'bf' => [0, 50]
+		],
+		'blockshowcaseevil' => [
+			'gf-pixel' => [580, 430],
+			'bf-pixel' => [970, 670],
+			'senpai' => [250, 460],
+			'senpai-angry' => [250, 460],
+			'spirit' => [-50, 200],
+			'bf' => [0, 50]
+		],
+		// 'village' => ['djprince' => [690, 70], 'villager' => [350, 80]], // 'djprince' => [700, 70], 'villager' => [150, 80]
+		'village' => ['djprince' => [660, 0], 'villager' => [-180, 0], 'singingprincess' => [470, 45]], // 'djprince' => [700, 70], 'villager' => [150, 80]
+		'auditorHell' => ['bf' => [1175, 280]], // Tricky
+		'bloons' => ['loweffortquincy' => [40, -65]],
+		'murderinstage' => [
+			'stevexg' => [160, 368], 'tankman' => [180, 280], 'griff' => [160, 368], 'xg' => [220, 50], 'harp' => [200, 10], 'bfpixelenemy' => [385, 600],
+			'bfenemy' => [175, 450], 'dadrockstar' => [-50, 90], 'gene' => [160, 75], 'dhark' => [0, 100], 'dharky' => [830, 160], 'bubbohd' => [120, 500],
+			'oddubhd' => [120, 500], 'ex2x' => [100, 30], 'bg3andjoseph' => [-50, 60], 'noiah' => [110, 70], 'djkirby' => [100, 290], 'abf' => [990, 560],
+			'loweffortquincy' => [40, -65], 'singingprincess' => [470, 45], 'eliot' => [140, 240]],
+		'stage' => [
+			'stevexg' => [160, 368], 'tankman' => [180, 280], 'griff' => [160, 368], 'xg' => [220, 50], 'harp' => [200, 10], 'bfpixelenemy' => [385, 600],
+			'bfenemy' => [175, 450], 'dadrockstar' => [-50, 90], 'gene' => [160, 75], 'dhark' => [0, 100], 'dharky' => [830, 160], 'bubbohd' => [120, 500],
+			'oddubhd' => [120, 500], 'ex2x' => [100, 30], 'bg3andjoseph' => [-50, 60], 'noiah' => [110, 70], 'djkirby' => [100, 290], 'abf' => [990, 560],
+			'loweffortquincy' => [40, -65], 'singingprincess' => [470, 45], 'eliot' => [140, 240], 'kleadron' => [310, 580]]
 	];
 
+	// 'stage' => [
+	// 	'stevexg' => [150, 340],
+	// 	'tankman' => [0, 180],
+	// 	'griff' => [400, 130], // 'griff' => [100, 400],
+	// 	'xg' => [400, 0],
+	// 	'harp' => [410, 130]
 	public function new(daStage:String)
 	{
 		super();
@@ -68,6 +125,343 @@ class Stage extends MusicBeatState
 					halloweenBG.antialiasing = FlxG.save.data.antialiasing;
 					swagBacks['halloweenBG'] = halloweenBG;
 					toAdd.push(halloweenBG);
+				}
+			case 'alley': // Stolen From Whitty
+				{
+					camZoom = 0.9;
+					var bg:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.loadImage('whittyBack', 'week6'));
+					bg.antialiasing = FlxG.save.data.antialiasing;
+					bg.scrollFactor.set(0.9, 0.9);
+					bg.active = false;
+					swagBacks['bg'] = bg;
+					toAdd.push(bg);
+
+					var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.loadImage('whittyFront', 'week6'));
+					stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+					stageFront.updateHitbox();
+					stageFront.antialiasing = FlxG.save.data.antialiasing;
+					stageFront.scrollFactor.set(0.9, 0.9);
+					stageFront.active = false;
+					swagBacks['stageFront'] = stageFront;
+					toAdd.push(stageFront);
+				}
+			case 'murderinalley': // Stolen From Whitty
+				{
+					camZoom = 0.9;
+					var bg:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.loadImage('AlleyBack', 'week6'));
+					bg.antialiasing = FlxG.save.data.antialiasing;
+					bg.scrollFactor.set(0.9, 0.9);
+					bg.active = false;
+					swagBacks['bg'] = bg;
+					toAdd.push(bg);
+
+					var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.loadImage('AlleyFront', 'week6'));
+					stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+					stageFront.updateHitbox();
+					stageFront.antialiasing = FlxG.save.data.antialiasing;
+					stageFront.scrollFactor.set(0.9, 0.9);
+					stageFront.active = false;
+					swagBacks['stageFront'] = stageFront;
+					toAdd.push(stageFront);
+				}
+			case 'ballisticAlley': // Stolen From Whitty
+				{
+					camZoom = 0.9;
+					var hallowTex = Paths.getSparrowAtlas('BallisticBackground', 'week6');
+
+					var wbg:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.loadImage('whittyBack', 'week6'));
+					wbg.antialiasing = FlxG.save.data.antialiasing;
+
+					var bg = new FlxSprite(-600, -200);
+					bg.frames = hallowTex;
+					bg.animation.addByPrefix('idle', 'Background Whitty Moving', 16, true);
+					bg.animation.play('idle');
+					bg.antialiasing = FlxG.save.data.antialiasing;
+					swagBacks['bg'] = bg;
+					toAdd.push(bg);
+
+					bg.scrollFactor.set(0.9, 0.9);
+					bg.active = true;
+					toAdd.push(bg);
+
+					var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.loadImage('whittyFront', 'week6'));
+					stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+					stageFront.updateHitbox();
+					stageFront.antialiasing = FlxG.save.data.antialiasing;
+					stageFront.scrollFactor.set(0.9, 0.9);
+					stageFront.active = false;
+					swagBacks['stageFront'] = stageFront;
+					toAdd.push(stageFront);
+
+					var effect = new FlxSprite(-600, -200).loadGraphic(Paths.loadImage('thefunnyeffect', 'week6'));
+					effect.alpha = 0.5;
+					effect.scrollFactor.set();
+					toAdd.push(effect);
+				}
+			case 'auditorHell': // Stolen from Tricky
+				{
+					camZoom = 0.55;
+
+					var hole:FlxSprite = new FlxSprite(50, 530).loadGraphic(Paths.loadImage('Spawnhole_Ground_BACK', 'week3'));
+
+					var bg = new FlxSprite(-10, -10).loadGraphic(Paths.loadImage('bg', 'week3'));
+					bg.antialiasing = FlxG.save.data.antialiasing;
+					bg.scrollFactor.set(0.9, 0.9);
+					bg.active = false;
+					bg.setGraphicSize(Std.int(bg.width * 4));
+					toAdd.push(bg);
+
+					hole.antialiasing = FlxG.save.data.antialiasing;
+					hole.scrollFactor.set(0.9, 0.9);
+					hole.setGraphicSize(Std.int(hole.width * 1.55));
+
+					var energyWall:FlxSprite = new FlxSprite(1350, -690).loadGraphic(Paths.loadImage('Energywall', 'week3'));
+					energyWall.antialiasing = FlxG.save.data.antialiasing;
+					energyWall.scrollFactor.set(0.9, 0.9);
+					toAdd.push(energyWall);
+
+					var stageFront:FlxSprite = new FlxSprite(-350, -355).loadGraphic(Paths.loadImage('daBackground', 'week3'));
+					stageFront.antialiasing = FlxG.save.data.antialiasing;
+					stageFront.scrollFactor.set(0.9, 0.9);
+					stageFront.setGraphicSize(Std.int(stageFront.width * 1.55));
+					toAdd.push(stageFront);
+
+					toAdd.push(hole);
+				} // End of Stolen Tricky Stuff
+			case 'village':
+				{
+					var villageTex = Paths.getSparrowAtlas('village', 'week6');
+
+					var village = new FlxSprite(-380, 0); //-380
+					village.frames = villageTex;
+					village.animation.addByPrefix('idle', 'Village BG0');
+					village.animation.play('idle');
+					village.antialiasing = FlxG.save.data.antialiasing;
+					swagBacks['village'] = village;
+					toAdd.push(village);
+
+					var villageChar = new FlxSprite(-75, 0);
+					villageChar.frames = Paths.getSparrowAtlas('Background_chars', 'week6');
+					villageChar.animation.addByPrefix('idle', "Dance", 24, false);
+					villageChar.antialiasing = FlxG.save.data.antialiasing;
+					swagBacks['villageChar'] = villageChar;
+					toAdd.push(villageChar);
+					animatedBacks.push(villageChar);
+
+					// var villageChar:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('Background_chars'));
+					// villageChar.antialiasing = FlxG.save.data.antialiasing;
+					// villageChar.active = false;
+					// toAdd.push(villageChar);
+
+					// var bgGirls = new BackgroundGirls(-100, 190);
+					// bgGirls.scrollFactor.set(0.9, 0.9);
+					// bgGirls.setGraphicSize(Std.int(bgGirls.width * PlayState.daPixelZoom));
+					// bgGirls.updateHitbox();
+					// swagBacks['bgGirls'] = bgGirls;
+					// toAdd.push(bgGirls);
+				}
+			case 'bloons':
+				{
+					camZoom = 0.9;
+					var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.loadImage('BloonsBackground', 'week6'));
+					bg.antialiasing = FlxG.save.data.antialiasing;
+					bg.scrollFactor.set(0.9, 0.9);
+					bg.active = false;
+					swagBacks['bg'] = bg;
+					toAdd.push(bg);
+
+					var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.loadImage('BloonsFloor', 'week6'));
+					stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+					stageFront.updateHitbox();
+					stageFront.antialiasing = FlxG.save.data.antialiasing;
+					stageFront.scrollFactor.set(0.9, 0.9);
+					stageFront.active = false;
+					swagBacks['stageFront'] = stageFront;
+					toAdd.push(stageFront);
+
+					var repositionShit = -200;
+
+					var bloonsLogs:FlxSprite = new FlxSprite(repositionShit + 85, 343).loadGraphic(Paths.loadImage('BloonsLogs', 'week6'));
+					bloonsLogs.setGraphicSize(Std.int(bloonsLogs.width * 0.75));
+					bloonsLogs.antialiasing = FlxG.save.data.antialiasing;
+					bloonsLogs.updateHitbox();
+					bloonsLogs.scrollFactor.set(0.9, 0.9);
+					swagBacks['bloonsLogs'] = bloonsLogs;
+					toAdd.push(bloonsLogs);
+
+					var bloons = new FlxSprite(0, 0);
+					bloons.frames = Paths.getSparrowAtlas('Bloons', 'week6');
+					bloons.antialiasing = FlxG.save.data.antialiasing;
+					bloons.setGraphicSize(Std.int(bloons.width * 1.75));
+					bloons.animation.addByPrefix('red', "Red Bloon", 24, false);
+					bloons.animation.addByPrefix('blue', "Blue Bloon", 24, false);
+					bloons.animation.addByPrefix('green', "Green Bloon", 24, false);
+					bloons.animation.addByPrefix('yellow', "Yellow Bloon", 24, false);
+					bloons.scrollFactor.set(0.85, 0.85);
+
+					bloons.visible = false;
+
+					if (FlxG.save.data.distractions)
+					{
+						swagBacks['bloons'] = bloons;
+						layInFront[2].push(bloons);
+						resetBloons();
+					}
+
+					if (FlxG.random.bool(25))
+						bloons.animation.play('red');
+					else if (FlxG.random.bool(25))
+						bloons.animation.play('blue');
+					else if (FlxG.random.bool(25))
+						bloons.animation.play('green');
+					else
+						bloons.animation.play('yellow');
+					// bloons.animation.play(bloons[FlxG.random.int(0, bloons.length - 1)]);
+				}
+			case 'wainbowbwidge':
+				{
+					camZoom = 0.90;
+
+					var skyBG:FlxSprite = new FlxSprite(-120, -50).loadGraphic(Paths.loadImage('limoSunset', 'week6'));
+					skyBG.scrollFactor.set(0.1, 0.1);
+					skyBG.antialiasing = FlxG.save.data.antialiasing;
+					swagBacks['skyBG'] = skyBG;
+					toAdd.push(skyBG);
+
+					var bgLimo:FlxSprite = new FlxSprite(-200, 480);
+					bgLimo.frames = Paths.getSparrowAtlas('BackgroundPath', 'week6');
+					bgLimo.animation.addByPrefix('drive', "background limo pink", 24);
+					bgLimo.animation.play('drive');
+					bgLimo.scrollFactor.set(0.4, 0.4);
+					bgLimo.antialiasing = FlxG.save.data.antialiasing;
+					swagBacks['bgLimo'] = bgLimo;
+					toAdd.push(bgLimo);
+
+					var fastCar:FlxSprite;
+					fastCar = new FlxSprite(-300, 160).loadGraphic(Paths.loadImage('TLDMurderbike', 'week6'));
+					fastCar.antialiasing = FlxG.save.data.antialiasing;
+					fastCar.visible = false;
+
+					if (FlxG.save.data.distractions)
+					{
+						swagBacks['fastCar'] = fastCar;
+						layInFront[2].push(fastCar);
+						resetFastCar();
+					}
+
+					var overlayShit:FlxSprite = new FlxSprite(-500, -600).loadGraphic(Paths.loadImage('limoOverlay', 'week6'));
+					overlayShit.alpha = 0.5;
+					// add(overlayShit);
+
+					// var shaderBullshit = new BlendModeEffect(new OverlayShader(), FlxColor.RED);
+
+					// FlxG.camera.setFilters([new ShaderFilter(cast shaderBullshit.shader)]);
+
+					// overlayShit.shader = shaderBullshit;
+
+					var limoTex = Paths.getSparrowAtlas('limoDrive', 'week6');
+
+					var limo = new FlxSprite(-120, 550);
+					limo.frames = limoTex;
+					limo.animation.addByPrefix('drive', "Limo stage", 24);
+					limo.animation.play('drive');
+					limo.antialiasing = FlxG.save.data.antialiasing;
+					layInFront[0].push(limo);
+					swagBacks['limo'] = limo;
+				}
+			case 'blockshowcase':
+				{
+					var bgSky = new FlxSprite().loadGraphic(Paths.loadImage('weebSky', 'week6'));
+					bgSky.scrollFactor.set(0.1, 0.1);
+					swagBacks['bgSky'] = bgSky;
+					toAdd.push(bgSky);
+
+					var repositionShit = -200;
+
+					var bgSchool:FlxSprite = new FlxSprite(repositionShit, 0).loadGraphic(Paths.loadImage('weebSchool', 'week6'));
+					bgSchool.scrollFactor.set(0.6, 0.90);
+					swagBacks['bgSchool'] = bgSchool;
+					toAdd.push(bgSchool);
+
+					var bgStreet:FlxSprite = new FlxSprite(repositionShit).loadGraphic(Paths.loadImage('weebStreet', 'week6'));
+					bgStreet.scrollFactor.set(0.95, 0.95);
+					swagBacks['bgStreet'] = bgStreet;
+					toAdd.push(bgStreet);
+
+					var widShit = Std.int(bgSky.width * 6);
+
+					bgSky.setGraphicSize(widShit);
+					bgSchool.setGraphicSize(widShit);
+					bgStreet.setGraphicSize(widShit);
+
+					bgSky.updateHitbox();
+					bgSchool.updateHitbox();
+					bgStreet.updateHitbox();
+
+					var bgGirls = new BackgroundGirls(-100, 190);
+					bgGirls.scrollFactor.set(0.9, 0.9);
+
+					// if (PlayState.SONG.songId.toLowerCase() == 'roses')
+					if (GameplayCustomizeState.freeplaySong == 'roses')
+					{
+						if (FlxG.save.data.distractions)
+							bgGirls.getScared();
+					}
+
+					bgGirls.setGraphicSize(Std.int(bgGirls.width * CoolUtil.daPixelZoom));
+					bgGirls.updateHitbox();
+					if (FlxG.save.data.distractions)
+					{
+						swagBacks['bgGirls'] = bgGirls;
+						toAdd.push(bgGirls);
+					}
+				}
+			case 'blockshowcaseevil':
+				{
+					var waveEffectBG = new FlxWaveEffect(FlxWaveMode.ALL, 2, -1, 3, 2);
+					var waveEffectFG = new FlxWaveEffect(FlxWaveMode.ALL, 2, -1, 5, 2);
+
+					var posX = 400;
+					var posY = 200;
+
+					var bg:FlxSprite = new FlxSprite(posX, posY);
+					bg.frames = Paths.getSparrowAtlas('animatedEvilSchool', 'week6');
+					bg.animation.addByPrefix('idle', 'background 2', 24);
+					bg.animation.play('idle');
+					bg.scrollFactor.set(0.8, 0.9);
+					bg.scale.set(6, 6);
+					swagBacks['bg'] = bg;
+					toAdd.push(bg);
+				}
+			case 'murderinstage':
+				{
+					camZoom = 0.9;
+					curStage = 'stage';
+					var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.loadImage('MurderinStageBack', 'week6'));
+					bg.antialiasing = FlxG.save.data.antialiasing;
+					bg.scrollFactor.set(0.9, 0.9);
+					bg.active = false;
+					swagBacks['bg'] = bg;
+					toAdd.push(bg);
+
+					var stageFront:FlxSprite = new FlxSprite(-650, 600).loadGraphic(Paths.loadImage('MurderinStageFront', 'week6'));
+					stageFront.setGraphicSize(Std.int(stageFront.width * 1.1));
+					stageFront.updateHitbox();
+					stageFront.antialiasing = FlxG.save.data.antialiasing;
+					stageFront.scrollFactor.set(0.9, 0.9);
+					stageFront.active = false;
+					swagBacks['stageFront'] = stageFront;
+					toAdd.push(stageFront);
+
+					var stageCurtains:FlxSprite = new FlxSprite(-500, -300).loadGraphic(Paths.loadImage('MurderinStageCurtains', 'week6'));
+					stageCurtains.setGraphicSize(Std.int(stageCurtains.width * 0.9));
+					stageCurtains.updateHitbox();
+					stageCurtains.antialiasing = FlxG.save.data.antialiasing;
+					stageCurtains.scrollFactor.set(1.3, 1.3);
+					stageCurtains.active = false;
+
+					swagBacks['stageCurtains'] = stageCurtains;
+					toAdd.push(stageCurtains);
 				}
 			case 'philly':
 				{
@@ -534,7 +928,7 @@ class Stage extends MusicBeatState
 							trace('spooky');
 						}
 					}
-				case 'school':
+				case 'school', 'blockshowcase':
 					if (FlxG.save.data.distractions)
 					{
 						swagBacks['bgGirls'].dance();
@@ -549,6 +943,12 @@ class Stage extends MusicBeatState
 
 						if (FlxG.random.bool(10) && fastCarCanDrive)
 							fastCarDrive();
+					}
+				case 'bloons':
+					if (FlxG.save.data.distractions)
+					{
+						if (FlxG.random.bool(10) && bloonsCanMove)
+							bloonsMove();
 					}
 				case "philly":
 					if (FlxG.save.data.distractions)
@@ -611,7 +1011,6 @@ class Stage extends MusicBeatState
 
 	var trainMoving:Bool = false;
 	var trainFrameTiming:Float = 0;
-
 	var trainCars:Int = 8;
 	var trainFinishing:Bool = false;
 	var trainCooldown:Int = 0;
@@ -708,6 +1107,35 @@ class Stage extends MusicBeatState
 			new FlxTimer().start(2, function(tmr:FlxTimer)
 			{
 				resetFastCar();
+			});
+		}
+	}
+
+	var bloonsCanMove:Bool = true;
+
+	function resetBloons():Void
+	{
+		if (FlxG.save.data.distractions)
+		{
+			var bloons = swagBacks['bloons'];
+			bloons.x = -350;
+			bloons.y = 350;
+			bloons.velocity.x = 0;
+			bloons.visible = false;
+			bloonsCanMove = true;
+		}
+	}
+
+	function bloonsMove()
+	{
+		if (FlxG.save.data.distractions)
+		{
+			swagBacks['bloons'].visible = true;
+			swagBacks['bloons'].velocity.x = (FlxG.random.int(300, 500));
+			bloonsCanMove = false;
+			new FlxTimer().start(10, function(tmr:FlxTimer)
+			{
+				resetBloons();
 			});
 		}
 	}

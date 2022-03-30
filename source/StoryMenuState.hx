@@ -27,28 +27,206 @@ class StoryMenuState extends MusicBeatState
 	{
 		return [
 			['tutorial'],
-			['bopeebo', 'fresh', 'dadbattle'],
-			['spookeez', 'south', "monster"],
-			['pico', 'philly', "blammed"],
-			['satin-panties', "high", "milf"],
-			['cocoa', 'eggnog', 'winter-horrorland'],
-			['senpai', 'roses', 'thorns']
+			['defiant', 'the-belt', 'end-of-an-era'],
+			['expedition', 'accelerated', 'finale'],
+			// ['dark-n-deep', 'orientation', 'devastation'],
+			['calcium', 'beyond', 'darkside', 'uk'],
+			['synergy', 'tempo', 'energetic'],
+			['revival', 'benefactor', 'dadbonus', 'rushbf'],
+			['nitwit', 'sub', 'tierone', 'tacktrostophy']
 		];
 	}
 
+	var bf:FlxSprite;
+	var dadrockstar:FlxSprite;
+	var djprince:FlxSprite;
+	var villager:FlxSprite;
+	var gene:FlxSprite;
+	var eliot:FlxSprite;
+	var loweffortquincy:FlxSprite;
+	var harp:FlxSprite;
+	var gf:FlxSprite;
+	var xg:FlxSprite;
+
+	function initCharacters() // Thanks Kleadron.
+	{
+		bf = new FlxSprite();
+		bf.frames = Paths.getSparrowAtlas('characters/BOYFRIEND', 'shared');
+		bf.animation.addByPrefix('idle', 'BF idle dance', 24, true);
+		bf.antialiasing = FlxG.save.data.antialiasing;
+		bf.setGraphicSize(Std.int(bf.width * 0.75));
+		bf.updateHitbox();
+		bf.visible = false;
+		bf.animation.play('idle');
+		#if Ultrawide
+		bf.x = 949 + 220;
+		#else
+		bf.x = 949;
+		#end
+		bf.y = 400;
+
+		dadrockstar = new FlxSprite();
+		dadrockstar.frames = Paths.getSparrowAtlas('characters/Dad_Rockstar', 'shared');
+		dadrockstar.animation.addByPrefix('idle', 'Young Dad Idle', 24, true);
+		dadrockstar.antialiasing = FlxG.save.data.antialiasing;
+		dadrockstar.setGraphicSize(Std.int(dadrockstar.width * 0.75));
+		dadrockstar.updateHitbox();
+		dadrockstar.visible = false;
+		dadrockstar.animation.play('idle');
+		#if Ultrawide
+		dadrockstar.x = 390 + 110;
+		#else
+		dadrockstar.x = 390;
+		#end
+		dadrockstar.y = 137;
+
+		djprince = new FlxSprite();
+		djprince.frames = Paths.getSparrowAtlas('characters/DJ_Prince', 'shared');
+		djprince.animation.addByPrefix('idle', 'DJ Prince Idle Dance', 24, true);
+		djprince.antialiasing = FlxG.save.data.antialiasing;
+		djprince.setGraphicSize(Std.int(djprince.width * 0.75));
+		djprince.updateHitbox();
+		djprince.visible = false;
+		djprince.animation.play('idle');
+		#if Ultrawide
+		djprince.x = 780 + 110;
+		#else
+		djprince.x = 780;
+		#end
+		djprince.y = 60;
+
+		villager = new FlxSprite();
+		villager.frames = Paths.getSparrowAtlas('characters/Villager', 'shared');
+		villager.animation.addByPrefix('idle', 'Villager Idle Dance', 24, true);
+		villager.antialiasing = FlxG.save.data.antialiasing;
+		villager.setGraphicSize(Std.int(villager.width * 0.75));
+		villager.updateHitbox();
+		villager.visible = false;
+		villager.animation.play('idle');
+		#if Ultrawide
+		villager.x = 290 + 110;
+		#else
+		villager.x = 290;
+		#end
+		villager.y = 68;
+
+		gene = new FlxSprite();
+		gene.frames = Paths.getSparrowAtlas('characters/gene', 'shared');
+		gene.animation.addByPrefix('idle', 'Gene Idle', 24, true);
+		gene.antialiasing = FlxG.save.data.antialiasing;
+		gene.setGraphicSize(Std.int(gene.width * 0.75));
+		gene.updateHitbox();
+		gene.visible = false;
+		gene.animation.play('idle');
+		gene.alpha = 0.7;
+		#if Ultrawide
+		gene.x = 320 + 110;
+		#else
+		gene.x = 320;
+		#end
+		gene.y = 150;
+
+		loweffortquincy = new FlxSprite();
+		loweffortquincy.frames = Paths.getSparrowAtlas('characters/LowEffortQuincy', 'shared');
+		loweffortquincy.animation.addByPrefix('idle', 'Quincy Idle Dance', 24, true);
+		loweffortquincy.antialiasing = FlxG.save.data.antialiasing;
+		loweffortquincy.setGraphicSize(Std.int(loweffortquincy.width * 0.8 * 0.75));
+		loweffortquincy.updateHitbox();
+		loweffortquincy.visible = false;
+		loweffortquincy.animation.play('idle');
+		loweffortquincy.alpha = 0.7;
+		#if Ultrawide
+		loweffortquincy.x = 250 + 110;
+		#else
+		loweffortquincy.x = 250;
+		#end
+		loweffortquincy.y = 110;
+
+		eliot = new FlxSprite();
+		eliot.frames = Paths.getSparrowAtlas('characters/Eliot', 'shared');
+		eliot.animation.addByPrefix('idle', 'Eliot Idle Dance', 24, true);
+		eliot.antialiasing = FlxG.save.data.antialiasing;
+		eliot.setGraphicSize(Std.int(eliot.width * 0.75));
+		eliot.updateHitbox();
+		eliot.visible = false;
+		eliot.animation.play('idle');
+		#if Ultrawide
+		eliot.x = 440 + 110;
+		#else
+		eliot.x = 440;
+		#end
+		eliot.y = 250;
+
+		harp = new FlxSprite();
+		harp.frames = Paths.getSparrowAtlas('characters/Harp_assets', 'shared');
+		harp.animation.addByPrefix('idle', 'Harp Idle', 24, true);
+		harp.antialiasing = FlxG.save.data.antialiasing;
+		harp.setGraphicSize(Std.int(harp.width * 0.75));
+		harp.updateHitbox();
+		harp.visible = false;
+		harp.animation.play('idle');
+		#if Ultrawide
+		harp.x = 510 + 110;
+		#else
+		harp.x = 510;
+		#end
+		harp.y = 95;
+
+		gf = new FlxSprite();
+		gf.frames = Paths.getSparrowAtlas('characters/GF_assets', 'shared');
+		gf.animation.addByPrefix('idle', 'GF Dancing Beat0', 24, true);
+		gf.antialiasing = FlxG.save.data.antialiasing;
+		gf.setGraphicSize(Std.int(gf.width * 0.75));
+		gf.updateHitbox();
+		gf.visible = false;
+		gf.animation.play('idle');
+		#if Ultrawide
+		gf.x = 400 + 110;
+		#else
+		gf.x = 400;
+		#end
+		gf.y = 225;
+
+		xg = new FlxSprite();
+		xg.frames = Paths.getSparrowAtlas('characters/xgtest', 'shared');
+		xg.animation.addByPrefix('idle', 'xg idle', 24, true);
+		xg.antialiasing = FlxG.save.data.antialiasing;
+		xg.setGraphicSize(Std.int(xg.width * 0.75));
+		xg.updateHitbox();
+		xg.visible = false;
+		xg.animation.play('idle');
+		xg.alpha = 0.3;
+		#if Ultrawide
+		xg.x = 325 + 110;
+		#else
+		xg.x = 325;
+		#end
+		xg.y = 110;
+	}
+
+	function addCharacters()
+	{
+		add(bf);
+		add(gf);
+		add(dadrockstar);
+		add(harp);
+		add(gene);
+		add(eliot);
+		add(loweffortquincy);
+		add(xg);
+		add(villager);
+		add(djprince);
+	}
+
+	#if OneDifficulty
+	var curDifficulty:Int = 0;
+	#else
 	var curDifficulty:Int = 1;
+	#end
 
 	public static var weekUnlocked:Array<Bool> = [];
 
-	var weekCharacters:Array<Dynamic> = [
-		['', 'bf', 'gf'],
-		['dad', 'bf', 'gf'],
-		['spooky', 'bf', 'gf'],
-		['pico', 'bf', 'gf'],
-		['mom', 'bf', 'gf'],
-		['parents-christmas', 'bf', 'gf'],
-		['senpai', 'bf', 'gf']
-	];
+	private var iconArray:Array<HealthIcon> = [];
 
 	var weekNames:Array<String> = CoolUtil.coolTextFile(Paths.txt('data/weekNames'));
 
@@ -59,7 +237,6 @@ class StoryMenuState extends MusicBeatState
 	var txtTracklist:FlxText;
 
 	var grpWeekText:FlxTypedGroup<MenuItem>;
-	var grpWeekCharacters:FlxTypedGroup<MenuCharacter>;
 
 	var grpLocks:FlxTypedGroup<FlxSprite>;
 
@@ -71,11 +248,11 @@ class StoryMenuState extends MusicBeatState
 	function unlockWeeks():Array<Bool>
 	{
 		var weeks:Array<Bool> = [];
-		#if debug
+		// #if debug // Comment this if you want to unlock the weeks again
 		for (i in 0...weekNames.length)
 			weeks.push(true);
 		return weeks;
-		#end
+		// #end // This too
 
 		weeks.push(true);
 
@@ -104,7 +281,7 @@ class StoryMenuState extends MusicBeatState
 		{
 			if (!FlxG.sound.music.playing)
 			{
-				FlxG.sound.playMusic(Paths.music('freakyMenu'));
+				FlxG.sound.playMusic(FlxG.random.bool() ? Paths.music('freakyMenu') : Paths.music('freakyMenuOG'));
 				Conductor.changeBPM(102);
 			}
 		}
@@ -125,29 +302,24 @@ class StoryMenuState extends MusicBeatState
 		rankText.screenCenter(X);
 
 		var ui_tex = Paths.getSparrowAtlas('campaign_menu_UI_assets');
-		var yellowBG:FlxSprite = new FlxSprite(0, 56).makeGraphic(FlxG.width, 400, 0xFFF9CF51);
 
 		grpWeekText = new FlxTypedGroup<MenuItem>();
-		add(grpWeekText);
 
 		grpLocks = new FlxTypedGroup<FlxSprite>();
-		add(grpLocks);
 
 		var blackBarThingie:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, 56, FlxColor.BLACK);
 		add(blackBarThingie);
-
-		grpWeekCharacters = new FlxTypedGroup<MenuCharacter>();
 
 		trace("Line 70");
 
 		for (i in 0...weekData().length)
 		{
-			var weekThing:MenuItem = new MenuItem(0, yellowBG.y + yellowBG.height + 10, i);
+			var weekThing:MenuItem = new MenuItem(20, 5, i);
 			weekThing.y += ((weekThing.height + 20) * i);
 			weekThing.targetY = i;
 			grpWeekText.add(weekThing);
 
-			weekThing.screenCenter(X);
+			// weekThing.screenCenter(X);
 			weekThing.antialiasing = FlxG.save.data.antialiasing;
 			// weekThing.updateHitbox();
 
@@ -167,12 +339,10 @@ class StoryMenuState extends MusicBeatState
 
 		trace("Line 96");
 
-		grpWeekCharacters.add(new MenuCharacter(0, 100, 0.5, false));
-		grpWeekCharacters.add(new MenuCharacter(450, 25, 0.9, true));
-		grpWeekCharacters.add(new MenuCharacter(850, 100, 0.5, true));
-
 		difficultySelectors = new FlxGroup();
+		#if !OneDifficulty
 		add(difficultySelectors);
+		#end
 
 		trace("Line 124");
 
@@ -205,17 +375,21 @@ class StoryMenuState extends MusicBeatState
 
 		trace("Line 150");
 
-		add(yellowBG);
-		add(grpWeekCharacters);
-
-		txtTracklist = new FlxText(FlxG.width * 0.05, yellowBG.x + yellowBG.height + 100, 0, "Tracks", 32);
+		txtTracklist = new FlxText(FlxG.width * 0.05, 100, 0, "Tracks", 32);
 		txtTracklist.alignment = CENTER;
 		txtTracklist.font = rankText.font;
 		txtTracklist.color = 0xFFe55777;
-		add(txtTracklist);
 		// add(rankText);
+		initCharacters();
+		addCharacters();
+
+		add(grpWeekText);
+		add(grpLocks);
+
 		add(scoreText);
 		add(txtWeekTitle);
+
+		add(txtTracklist);
 
 		updateText();
 
@@ -272,16 +446,22 @@ class StoryMenuState extends MusicBeatState
 						changeWeek(1);
 					}
 
+					#if !OneDifficulty
 					if (gamepad.pressed.DPAD_RIGHT)
 						rightArrow.animation.play('press')
 					else
+					{
+					#end
 						rightArrow.animation.play('idle');
-					if (gamepad.pressed.DPAD_LEFT)
+					#if !OneDifficulty
+					} if (gamepad.pressed.DPAD_LEFT)
 						leftArrow.animation.play('press');
 					else
+					{
+					#end
 						leftArrow.animation.play('idle');
-
-					if (gamepad.justPressed.DPAD_RIGHT)
+					#if !OneDifficulty
+					} if (gamepad.justPressed.DPAD_RIGHT)
 					{
 						changeDifficulty(1);
 					}
@@ -289,6 +469,7 @@ class StoryMenuState extends MusicBeatState
 					{
 						changeDifficulty(-1);
 					}
+					#end
 				}
 
 				if (FlxG.keys.justPressed.UP)
@@ -311,28 +492,26 @@ class StoryMenuState extends MusicBeatState
 				else
 					leftArrow.animation.play('idle');
 
+				#if !OneDifficulty
 				if (controls.RIGHT_P)
 					changeDifficulty(1);
 				if (controls.LEFT_P)
 					changeDifficulty(-1);
+				#end
 			}
-
 			if (controls.ACCEPT)
 			{
 				selectWeek();
 			}
 		}
-
 		if (controls.BACK && !movedBack && !selectedWeek)
 		{
 			FlxG.sound.play(Paths.sound('cancelMenu'));
 			movedBack = true;
 			FlxG.switchState(new MainMenuState());
 		}
-
 		if (FlxG.sound.music != null)
 			Conductor.songPosition = FlxG.sound.music.time;
-
 		super.update(elapsed);
 	}
 
@@ -349,7 +528,6 @@ class StoryMenuState extends MusicBeatState
 				FlxG.sound.play(Paths.sound('confirmMenu'));
 
 				grpWeekText.members[curWeek].startFlashing();
-				grpWeekCharacters.members[1].animation.play('bfConfirm');
 				stopspamming = true;
 			}
 
@@ -362,7 +540,11 @@ class StoryMenuState extends MusicBeatState
 
 			PlayState.storyDifficulty = curDifficulty;
 
+			#if OneDifficulty
+			var diff:String = [""][PlayState.storyDifficulty];
+			#else
 			var diff:String = ["-easy", "", "-hard"][PlayState.storyDifficulty];
+			#end
 			PlayState.sicks = 0;
 			PlayState.bads = 0;
 			PlayState.shits = 0;
@@ -382,13 +564,28 @@ class StoryMenuState extends MusicBeatState
 	{
 		curDifficulty += change;
 
+		#if OneDifficulty
+		if (curDifficulty < 0)
+			curDifficulty = 0;
+		if (curDifficulty > 0)
+			curDifficulty = 0;
+		#else
 		if (curDifficulty < 0)
 			curDifficulty = 2;
 		if (curDifficulty > 2)
 			curDifficulty = 0;
+		#end
 
 		sprDifficulty.offset.x = 0;
 
+		#if OneDifficulty
+		switch (curDifficulty)
+		{
+			case 0:
+				sprDifficulty.animation.play('normal');
+				sprDifficulty.offset.x = 70;
+		}
+		#else
 		switch (curDifficulty)
 		{
 			case 0:
@@ -401,6 +598,7 @@ class StoryMenuState extends MusicBeatState
 				sprDifficulty.animation.play('hard');
 				sprDifficulty.offset.x = 20;
 		}
+		#end
 
 		sprDifficulty.alpha = 0;
 
@@ -446,9 +644,57 @@ class StoryMenuState extends MusicBeatState
 
 	function updateText()
 	{
-		grpWeekCharacters.members[0].setCharacter(weekCharacters[curWeek][0]);
-		grpWeekCharacters.members[1].setCharacter(weekCharacters[curWeek][1]);
-		grpWeekCharacters.members[2].setCharacter(weekCharacters[curWeek][2]);
+		bf.visible = false;
+		gf.visible = false;
+		harp.visible = false;
+		dadrockstar.visible = false;
+		villager.visible = false;
+		djprince.visible = false;
+		gene.visible = false;
+		eliot.visible = false;
+		loweffortquincy.visible = false;
+		xg.visible = false;
+
+		switch (curWeek)
+		{
+			case 0:
+				bf.visible = true;
+				gf.visible = true;
+			case 1:
+				dadrockstar.visible = true;
+				bf.visible = true;
+				#if Ultrawide
+				bf.x = 949 + 110;
+				#else
+				bf.x = 949;
+				#end
+			case 2:
+				bf.visible = true;
+				#if Ultrawide
+				bf.x -= 280 - 55;
+				#else
+				bf.x -= 280;
+				#end
+			case 3:
+				harp.visible = true;
+				bf.visible = true;
+				#if Ultrawide
+				bf.x = 949 + 110;
+				#else
+				bf.x = 949;
+				#end
+			case 4:
+				bf.visible = true;
+			case 5:
+				eliot.visible = true;
+				bf.visible = true;
+				gene.visible = true;
+			case 6:
+				villager.visible = true;
+				djprince.visible = true;
+				loweffortquincy.visible = true;
+				xg.visible = true;
+		}
 
 		txtTracklist.text = "Tracks\n";
 		var stringThing:Array<String> = weekData()[curWeek];
@@ -459,7 +705,11 @@ class StoryMenuState extends MusicBeatState
 		txtTracklist.text = txtTracklist.text.toUpperCase();
 
 		txtTracklist.screenCenter(X);
-		txtTracklist.x -= FlxG.width * 0.35;
+		#if Ultrawide
+		txtTracklist.x += FlxG.width * 0.35 + 110;
+		#else
+		txtTracklist.x += FlxG.width * 0.35;
+		#end
 
 		txtTracklist.text += "\n";
 
@@ -483,16 +733,5 @@ class StoryMenuState extends MusicBeatState
 	override function beatHit()
 	{
 		super.beatHit();
-
-		if (curBeat % 2 == 0)
-		{
-			grpWeekCharacters.members[0].bopHead();
-			grpWeekCharacters.members[1].bopHead();
-		}
-		else if (weekCharacters[curWeek][0] == 'spooky' || weekCharacters[curWeek][0] == 'gf')
-			grpWeekCharacters.members[0].bopHead();
-
-		if (weekCharacters[curWeek][2] == 'spooky' || weekCharacters[curWeek][2] == 'gf')
-			grpWeekCharacters.members[2].bopHead();
 	}
 }

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Singing_Princess.png">
+	<SubTexture name="Singing Princess Idle Dance0000" x="0" y="0" width="400" height="900"/>
+	<SubTexture name="Singing Princess Idle Dance0001" x="401" y="0" width="400" height="900"/>
+	<SubTexture name="Singing Princess Idle Dance0002" x="801" y="0" width="400" height="900"/>
+	<SubTexture name="Singing Princess Idle Dance0003" x="1201" y="0" width="400" height="900"/>
+	<SubTexture name="Singing Princess Idle Dance0004" x="1601" y="0" width="400" height="900"/>
+	<SubTexture name="Singing Princess Idle Dance0005" x="2001" y="0" width="400" height="900"/>
+	<SubTexture name="Singing Princess Idle Dance0006" x="2401" y="0" width="400" height="900"/>
+	<SubTexture name="Singing Princess Idle Dance0007" x="2801" y="0" width="400" height="900"/>
+	<SubTexture name="Singing Princess Idle Dance0008" x="3201" y="0" width="400" height="900"/>
+	<SubTexture name="Singing Princess Idle Dance0009" x="3601" y="0" width="400" height="900"/>
+	<SubTexture name="Singing Princess Idle Dance0010" x="4001" y="0" width="400" height="900"/>
+	<SubTexture name="Singing Princess Idle Dance0011" x="4401" y="0" width="400" height="900"/>
+	<SubTexture name="Singing Princess Idle Dance0012" x="4801" y="0" width="400" height="900"/>
+	<SubTexture name="Singing Princess Idle Dance0013" x="5201" y="0" width="400" height="900"/>
+	<SubTexture name="Singing Princess Idle Dance0014" x="5601" y="0" width="400" height="900"/>
+	<SubTexture name="Singing Princess Idle Dance0015" x="6001" y="0" width="400" height="900"/>
+	<SubTexture name="Singing Princess Idle Dance0016" x="6401" y="0" width="400" height="900"/>
+	<SubTexture name="Singing Princess Idle Dance0017" x="6801" y="0" width="400" height="900"/>
+	<SubTexture name="Singing Princess Idle Dance0018" x="7201" y="0" width="400" height="900"/>
+	<SubTexture name="Singing Princess Idle Dance0019" x="7601" y="0" width="400" height="900"/>
+	<SubTexture name="Singing Princess Idle Dance0020" x="8001" y="0" width="400" height="900"/>
+	<SubTexture name="Singing Princess Idle Dance0021" x="8401" y="0" width="400" height="900"/>
+	<SubTexture name="Singing Princess Idle Dance0022" x="8801" y="0" width="400" height="900"/>
+	<SubTexture name="Singing Princess Idle Dance0023" x="9201" y="0" width="400" height="900"/>
+</TextureAtlas>

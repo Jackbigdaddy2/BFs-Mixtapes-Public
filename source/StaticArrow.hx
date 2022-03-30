@@ -46,8 +46,8 @@ class StaticArrow extends FlxSprite
 		updateHitbox();
 		offset.set(frameWidth / 2, frameHeight / 2);
 
-		offset.x -= 54;
-		offset.y -= 56;
+		offset.x -= (54 / 0.7) * (Note.noteScale); // -= 54; 9 key
+		offset.y -= (56 / 0.7) * (Note.noteScale); // -= 56; 9 key
 
 		angle = localAngle + modAngle;
 	}

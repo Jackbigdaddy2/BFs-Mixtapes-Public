@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Eliot.png">
+	<SubTexture name="Eliot Idle Dance0000" x="0" y="0" width="600" height="600"/>
+	<SubTexture name="Eliot Idle Dance0001" x="0" y="0" width="600" height="600"/>
+	<SubTexture name="Eliot Idle Dance0002" x="601" y="0" width="600" height="600"/>
+	<SubTexture name="Eliot Idle Dance0003" x="601" y="0" width="600" height="600"/>
+	<SubTexture name="Eliot Idle Dance0004" x="1201" y="0" width="600" height="600"/>
+	<SubTexture name="Eliot Idle Dance0005" x="1201" y="0" width="600" height="600"/>
+	<SubTexture name="Eliot Idle Dance0006" x="1801" y="0" width="600" height="600"/>
+	<SubTexture name="Eliot Idle Dance0007" x="1801" y="0" width="600" height="600"/>
+	<SubTexture name="Eliot Idle Dance0008" x="2401" y="0" width="600" height="600"/>
+	<SubTexture name="Eliot Idle Dance0009" x="2401" y="0" width="600" height="600"/>
+	<SubTexture name="Eliot Idle Dance0010" x="3001" y="0" width="600" height="600"/>
+	<SubTexture name="Eliot Idle Dance0011" x="3001" y="0" width="600" height="600"/>
+	<SubTexture name="Eliot LEFT0000" x="0" y="601" width="600" height="600"/>
+	<SubTexture name="Eliot LEFT0001" x="0" y="601" width="600" height="600"/>
+	<SubTexture name="Eliot LEFT0002" x="601" y="601" width="600" height="600"/>
+	<SubTexture name="Eliot LEFT0003" x="601" y="601" width="600" height="600"/>
+	<SubTexture name="Eliot LEFT0004" x="1201" y="601" width="600" height="600"/>
+	<SubTexture name="Eliot LEFT0005" x="1201" y="601" width="600" height="600"/>
+	<SubTexture name="Eliot LEFT0006" x="1801" y="601" width="600" height="600"/>
+	<SubTexture name="Eliot LEFT0007" x="1801" y="601" width="600" height="600"/>
+	<SubTexture name="Eliot LEFT0008" x="2401" y="601" width="600" height="600"/>
+	<SubTexture name="Eliot LEFT0009" x="2401" y="601" width="600" height="600"/>
+	<SubTexture name="Eliot DOWN0000" x="0" y="1201" width="600" height="600"/>
+	<SubTexture name="Eliot DOWN0001" x="0" y="1201" width="600" height="600"/>
+	<SubTexture name="Eliot DOWN0002" x="601" y="1201" width="600" height="600"/>
+	<SubTexture name="Eliot DOWN0003" x="601" y="1201" width="600" height="600"/>
+	<SubTexture name="Eliot DOWN0004" x="1201" y="1201" width="600" height="600"/>
+	<SubTexture name="Eliot DOWN0005" x="1201" y="1201" width="600" height="600"/>
+	<SubTexture name="Eliot DOWN0006" x="1801" y="1201" width="600" height="600"/>
+	<SubTexture name="Eliot DOWN0007" x="1801" y="1201" width="600" height="600"/>
+	<SubTexture name="Eliot DOWN0008" x="2401" y="1201" width="600" height="600"/>
+	<SubTexture name="Eliot DOWN0009" x="2401" y="1201" width="600" height="600"/>
+	<SubTexture name="Eliot UP0000" x="0" y="1801" width="600" height="600"/>
+	<SubTexture name="Eliot UP0001" x="0" y="1801" width="600" height="600"/>
+	<SubTexture name="Eliot UP0002" x="601" y="1801" width="600" height="600"/>
+	<SubTexture name="Eliot UP0003" x="601" y="1801" width="600" height="600"/>
+	<SubTexture name="Eliot UP0004" x="1201" y="1801" width="600" height="600"/>
+	<SubTexture name="Eliot UP0005" x="1201" y="1801" width="600" height="600"/>
+	<SubTexture name="Eliot UP0006" x="1801" y="1801" width="600" height="600"/>
+	<SubTexture name="Eliot UP0007" x="1801" y="1801" width="600" height="600"/>
+	<SubTexture name="Eliot UP0008" x="2401" y="1801" width="600" height="600"/>
+	<SubTexture name="Eliot UP0009" x="2401" y="1801" width="600" height="600"/>
+	<SubTexture name="Eliot RIGHT0000" x="0" y="2401" width="600" height="600"/>
+	<SubTexture name="Eliot RIGHT0001" x="0" y="2401" width="600" height="600"/>
+	<SubTexture name="Eliot RIGHT0002" x="601" y="2401" width="600" height="600"/>
+	<SubTexture name="Eliot RIGHT0003" x="601" y="2401" width="600" height="600"/>
+	<SubTexture name="Eliot RIGHT0004" x="1201" y="2401" width="600" height="600"/>
+	<SubTexture name="Eliot RIGHT0005" x="1201" y="2401" width="600" height="600"/>
+	<SubTexture name="Eliot RIGHT0006" x="1801" y="2401" width="600" height="600"/>
+	<SubTexture name="Eliot RIGHT0007" x="1801" y="2401" width="600" height="600"/>
+	<SubTexture name="Eliot RIGHT0008" x="2401" y="2401" width="600" height="600"/>
+	<SubTexture name="Eliot RIGHT0009" x="2401" y="2401" width="600" height="600"/>
+</TextureAtlas>

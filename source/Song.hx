@@ -52,6 +52,7 @@ typedef SongData =
 	var stage:String;
 	var ?validScore:Bool;
 	var ?offset:Int;
+	var mania:Int; // 9 key
 }
 
 typedef SongMeta =

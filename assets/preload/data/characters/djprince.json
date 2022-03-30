@@ -1,0 +1,56 @@
+{
+  "name": "DJ Prince",
+  "asset": "characters/DJ_Prince",
+  "barColor": "#6DBDFF",
+  "startingAnim": "idle",
+  "flipX": true,
+  "camPos": [400, -100],
+  "camFollow": [20, 0],
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "DJ Prince Idle Dance",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singUP",
+      "prefix": "DJ Prince UP",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "DJ Prince RIGHT",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "DJ Prince DOWN",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "DJ Prince LEFT",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singUPmiss",
+      "prefix": "DJ Prince NOTE UP MISS",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singRIGHTmiss",
+      "prefix": "DJ Prince NOTE RIGHT MISS",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singDOWNmiss",
+      "prefix": "DJ Prince NOTE DOWN MISS",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singLEFTmiss",
+      "prefix": "DJ Prince NOTE LEFT MISS",
+      "offsets": [0, 0]
+    }
+  ]
+}

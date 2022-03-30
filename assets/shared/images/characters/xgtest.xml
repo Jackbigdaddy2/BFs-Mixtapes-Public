@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="xgtest.png">
+	<SubTexture name="xg idle0000" x="0" y="0" width="400" height="800"/>
+	<SubTexture name="xg sing0000" x="400" y="0" width="400" height="800"/>
+</TextureAtlas>

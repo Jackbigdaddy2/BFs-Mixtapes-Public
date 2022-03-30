@@ -84,7 +84,7 @@ class PauseSubState extends MusicBeatSubstate
 		add(bg);
 
 		var levelInfo:FlxText = new FlxText(20, 15, 0, "", 32);
-		levelInfo.text += PlayState.SONG.songName;
+		levelInfo.text += PlayState.SONG.song;
 		levelInfo.scrollFactor.set();
 		levelInfo.setFormat(Paths.font("vcr.ttf"), 32);
 		levelInfo.updateHitbox();
@@ -95,7 +95,9 @@ class PauseSubState extends MusicBeatSubstate
 		levelDifficulty.scrollFactor.set();
 		levelDifficulty.setFormat(Paths.font('vcr.ttf'), 32);
 		levelDifficulty.updateHitbox();
+		#if !OneDifficulty
 		add(levelDifficulty);
+		#end
 
 		levelDifficulty.alpha = 0;
 		levelInfo.alpha = 0;
@@ -109,7 +111,12 @@ class PauseSubState extends MusicBeatSubstate
 
 		grpMenuShit = new FlxTypedGroup<Alphabet>();
 		add(grpMenuShit);
-		perSongOffset = new FlxText(5, FlxG.height - 18, 0, "Hello chat", 12);
+		if (PlayState.SONG.song.toLowerCase() == 'harpurgation')
+			perSongOffset = new FlxText(5, FlxG.height - 18, 0, "Thanks Kade!", 12);
+		else if (FlxG.random.bool(0.1))
+			perSongOffset = new FlxText(5, FlxG.height - 18, 0, "Swag", 12);
+		else
+			perSongOffset = new FlxText(5, FlxG.height - 18, 0, "", 12);
 		perSongOffset.scrollFactor.set();
 		perSongOffset.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 

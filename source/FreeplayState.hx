@@ -35,8 +35,16 @@ class FreeplayState extends MusicBeatState
 	public static var rate:Float = 1.0;
 
 	public static var curSelected:Int = 0;
+	#if OneDifficulty
+	public static var curDifficulty:Int = 0;
+	#else
 	public static var curDifficulty:Int = 1;
+	#end
 
+	// Stolen Week 7 Code
+	var bg:FlxSprite;
+	var scoreBG:FlxSprite;
+	// End of Stolen Week 7 Code
 	var scoreText:FlxText;
 	var comboText:FlxText;
 	var diffText:FlxText;
@@ -45,6 +53,19 @@ class FreeplayState extends MusicBeatState
 	var lerpScore:Int = 0;
 	var intendedScore:Int = 0;
 	var combo:String = '';
+
+	// Stolen Week 7 Code
+	private var coolColors = [
+		0xFF9271FD,
+		0xFFAF66CE,
+		0xFF31B0D1,
+		// 0xFF3C7193, // removed griff week color
+		0xFFFE573F,
+		0xFFFFFFFF,
+		0xFF5E6FC4, // mix of eliot and gene colors, 1739E2 A6A6A6
+		0xFFEDA440,
+		0xFF208b10
+	]; // End of Stolen Week 7 Code
 
 	private var grpSongs:FlxTypedGroup<Alphabet>;
 	private var curPlaying:Bool = false;
@@ -59,6 +80,7 @@ class FreeplayState extends MusicBeatState
 	{
 		var diffName:String = "";
 
+		#if !OneDifficulty
 		switch (diff)
 		{
 			case 0:
@@ -66,6 +88,7 @@ class FreeplayState extends MusicBeatState
 			case 2:
 				diffName = "-hard";
 		}
+		#end
 
 		array.push(Song.conversionChecks(Song.loadFromJson(songId, diffName)));
 	}
@@ -143,7 +166,10 @@ class FreeplayState extends MusicBeatState
 
 		// LOAD CHARACTERS
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.loadImage('menuBGBlue'));
+		// var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.loadImage('menuDesat'));
+		// Stolen Week 7 Code
+		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+
 		bg.antialiasing = FlxG.save.data.antialiasing;
 		add(bg);
 
@@ -174,23 +200,41 @@ class FreeplayState extends MusicBeatState
 		scoreText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, RIGHT);
 		// scoreText.alignment = RIGHT;
 
+		#if OneDifficulty
+		var scoreBG:FlxSprite = new FlxSprite(scoreText.x - 6, 0).makeGraphic(Std.int(FlxG.width * 0.4), 105, 0xFF000000);
+		#else
 		var scoreBG:FlxSprite = new FlxSprite(scoreText.x - 6, 0).makeGraphic(Std.int(FlxG.width * 0.4), 135, 0xFF000000);
+		#end
 		scoreBG.alpha = 0.6;
 		add(scoreBG);
 
 		diffText = new FlxText(scoreText.x, scoreText.y + 36, 0, "", 24);
 		diffText.font = scoreText.font;
+		#if !OneDifficulty
 		add(diffText);
+		#end
 
+		#if OneDifficulty
+		diffCalcText = new FlxText(scoreText.x, scoreText.y + 36, 0, "", 24);
+		#else
 		diffCalcText = new FlxText(scoreText.x, scoreText.y + 66, 0, "", 24);
+		#end
 		diffCalcText.font = scoreText.font;
 		add(diffCalcText);
 
+		#if OneDifficulty
+		previewtext = new FlxText(scoreText.x, scoreText.y + 66, 0, "Rate: " + FlxMath.roundDecimal(rate, 2) + "x", 24);
+		#else
 		previewtext = new FlxText(scoreText.x, scoreText.y + 96, 0, "Rate: " + FlxMath.roundDecimal(rate, 2) + "x", 24);
+		#end
 		previewtext.font = scoreText.font;
 		add(previewtext);
 
+		#if OneDifficulty
+		comboText = new FlxText(diffCalcText.x + 190, diffCalcText.y, 0, "", 24);
+		#else
 		comboText = new FlxText(diffText.x + 100, diffText.y, 0, "", 24);
+		#end
 		comboText.font = diffText.font;
 		add(comboText);
 
@@ -233,11 +277,14 @@ class FreeplayState extends MusicBeatState
 
 			var diffs = [];
 			var diffsThatExist = [];
+
 			#if FEATURE_FILESYSTEM
+			#if !OneDifficulty
 			if (Paths.doesTextAssetExist(Paths.json('songs/$songId/$songId-hard')))
 				diffsThatExist.push("Hard");
 			if (Paths.doesTextAssetExist(Paths.json('songs/$songId/$songId-easy')))
 				diffsThatExist.push("Easy");
+			#end
 			if (Paths.doesTextAssetExist(Paths.json('songs/$songId/$songId')))
 				diffsThatExist.push("Normal");
 
@@ -246,20 +293,31 @@ class FreeplayState extends MusicBeatState
 				Debug.displayAlert(meta.songName + " Chart", "No difficulties found for chart, skipping.");
 			}
 			#else
+			#if OneDifficulty
+			diffsThatExist = ["Normal"];
+			#else
 			diffsThatExist = ["Easy", "Normal", "Hard"];
 			#end
+			#end
 
+			#if OneDifficulty
+			if (diffsThatExist.contains("Normal"))
+				FreeplayState.loadDiff(0, songId, diffs);
+			#else
 			if (diffsThatExist.contains("Easy"))
 				FreeplayState.loadDiff(0, songId, diffs);
 			if (diffsThatExist.contains("Normal"))
 				FreeplayState.loadDiff(1, songId, diffs);
 			if (diffsThatExist.contains("Hard"))
 				FreeplayState.loadDiff(2, songId, diffs);
+			#end
 
 			meta.diffs = diffsThatExist;
 
+			#if !OneDifficulty
 			if (diffsThatExist.length != 3)
 				trace("I ONLY FOUND " + diffsThatExist);
+			#end
 
 			FreeplayState.songData.set(songId, diffs);
 			trace('loaded diffs for ' + songId);
@@ -310,6 +368,31 @@ class FreeplayState extends MusicBeatState
 		if (Math.abs(lerpScore - intendedScore) <= 10)
 			lerpScore = intendedScore;
 
+		// Stolen Week 7 Code
+		// Sorry about this, but I'm basically copying and pasting the compiled code here. If someone could simplify this but keep the exact same function, please do.
+		var b = Std.parseInt(bg.color.toHexString()),
+			c:Null<Int> = coolColors[songs[curSelected].week % coolColors.length],
+			d:Null<Float> = FlxG.elapsed / 0.016666666666666666 * 0.045; // CoolUtil.camLerpShit(0.045);
+		if (d == null)
+			d = 0.5;
+		var e = Std.int(((c >> 16 & 255) - (b >> 16 & 255)) * d + (b >> 16 & 255)) | 0,
+			f = Std.int(((c >> 8 & 255) - (b >> 8 & 255)) * d + (b >> 8 & 255)) | 0,
+			h = Std.int(((c & 255) - (b & 255)) * d + (b & 255)) | 0;
+		c = Std.int(((c >> 24 & 255) - (b >> 24 & 255)) * d + (b >> 24 & 255)) | 0;
+		if (c == null)
+			c = 255;
+		b = new FlxColor();
+		if (c == null)
+			c = 255;
+		b = (b & -16711681 | (255 < e ? 255 : 0 > e ? 0 : e) << 16) & -65281 | (255 < f ? 255 : 0 > f ? 0 : f) << 8;
+		b &= -256;
+		b |= 255 < h ? 255 : 0 > h ? 0 : h;
+		b &= 16777215;
+		b |= (255 < c ? 255 : 0 > c ? 0 : c) << 24;
+		bg.color = b;
+		// Alright, shit's over. Sincere apologies yet again, but at least it works.
+		// End of Stolen Week 7 Code
+
 		scoreText.text = "PERSONAL BEST:" + lerpScore;
 		comboText.text = combo + '\n';
 
@@ -337,6 +420,7 @@ class FreeplayState extends MusicBeatState
 			{
 				changeSelection(1);
 			}
+			#if !OneDifficulty
 			if (gamepad.justPressed.DPAD_LEFT)
 			{
 				changeDiff(-1);
@@ -345,6 +429,7 @@ class FreeplayState extends MusicBeatState
 			{
 				changeDiff(1);
 			}
+			#end
 
 			// if (gamepad.justPressed.X && !openedPreview)
 			// openSubState(new DiffOverview());
@@ -396,10 +481,12 @@ class FreeplayState extends MusicBeatState
 		}
 		else
 		{
+			#if !OneDifficulty
 			if (FlxG.keys.justPressed.LEFT)
 				changeDiff(-1);
 			if (FlxG.keys.justPressed.RIGHT)
 				changeDiff(1);
+			#end
 		}
 
 		#if cpp
@@ -521,10 +608,17 @@ class FreeplayState extends MusicBeatState
 
 		curDifficulty += change;
 
+		#if OneDifficulty
+		if (curDifficulty < 0)
+			curDifficulty = 0;
+		if (curDifficulty > 0)
+			curDifficulty = 0;
+		#else
 		if (curDifficulty < 0)
 			curDifficulty = 2;
 		if (curDifficulty > 2)
 			curDifficulty = 0;
+		#end
 
 		// adjusting the highscore song name to be compatible (changeDiff)
 		var songHighscore = StringTools.replace(songs[curSelected].songName, " ", "-");
@@ -561,12 +655,17 @@ class FreeplayState extends MusicBeatState
 		{
 			switch (songs[curSelected].diffs[0])
 			{
+				#if OneDifficulty
+				case "Normal":
+					curDifficulty = 0;
+				#else
 				case "Easy":
 					curDifficulty = 0;
 				case "Normal":
 					curDifficulty = 1;
 				case "Hard":
 					curDifficulty = 2;
+				#end
 			}
 		}
 

@@ -46,14 +46,30 @@ class LoadReplayState extends MusicBeatState
 
 		controlsStrings.sort(sortByDate);
 
-		addWeek(['Bopeebo', 'Fresh', 'Dadbattle'], 1, ['dad']);
-		addWeek(['Spookeez', 'South', 'Monster'], 2, ['spooky']);
-		addWeek(['Pico', 'Philly', 'Blammed'], 3, ['pico']);
+		// addWeek(['Bopeebo', 'Fresh', 'Dadbattle'], 1, ['dad']);
+		// addWeek(['Spookeez', 'South', 'Monster'], 2, ['spooky', 'spooky', 'monster']);
+		// addWeek(['Pico', 'Philly', 'Blammed'], 3, ['pico']);
 
-		addWeek(['Satin-Panties', 'High', 'Milf'], 4, ['mom']);
-		addWeek(['Cocoa', 'Eggnog', 'Winter-Horrorland'], 5, ['parents-christmas', 'parents-christmas', 'monster-christmas']);
+		// addWeek(['Satin-Panties', 'High', 'Milf'], 4, ['mom']);
+		// addWeek(['Cocoa', 'Eggnog', 'Winter-Horrorland'], 5, ['parents-christmas', 'parents-christmas', 'monster-christmas']);
 
-		addWeek(['Senpai', 'Roses', 'Thorns'], 6, ['senpai', 'senpai', 'spirit']);
+		// addWeek(['Senpai', 'Roses', 'Thorns'], 6, ['senpai', 'senpai', 'spirit']);
+
+		// addWeek(['Ugh', 'Guns', 'Stress'], 7, ['tankman']);
+
+		addWeek(['Defiant', 'The Belt', 'End Of An Era'], 1, ['dadrockstar']);
+
+		addWeek(['Expedition', 'Accelerated', 'Finale'], 2, ['bf']);
+
+		// addWeek(['Dark N Deep', 'Orientation', 'Devastation'], 3, ['griff']);
+
+		addWeek(['Calcium', 'Beyond', 'Darkside', 'UK'], 3, ['harp']);
+
+		addWeek(['Synergy', 'Tempo', 'Energetic'], 4, ['placeholder']);
+
+		addWeek(['Revival', 'Benefactor', 'DadBonus', 'RushBF'], 4, ['geneandeliot']);
+
+		addWeek(['Nitwit', 'Sub', 'TierOne', 'Tacktrostophy'], 7, ['villager']);
 
 		for (i in 0...controlsStrings.length)
 		{
@@ -227,7 +243,11 @@ class LoadReplayState extends MusicBeatState
 					}
 					else
 					{
+						#if OneDifficulty
+						var diff:String = [""][PlayState.rep.replay.songDiff];
+						#else
 						var diff:String = ["-easy", "", "-hard"][PlayState.rep.replay.songDiff];
+						#end
 						PlayState.SONG = Song.loadFromJson(PlayState.rep.replay.songName, diff);
 					}
 				}

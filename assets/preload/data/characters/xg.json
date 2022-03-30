@@ -1,0 +1,33 @@
+{
+  "name": "XG Test",
+  "asset": "characters/xgtest",
+  "barColor": "#5f25df",
+  "startingAnim": "idle",
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "xg idle",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singUP",
+      "prefix": "xg sing",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "xg sing",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "xg sing",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "xg sing",
+      "offsets": [0, 0]
+    }
+  ]
+}

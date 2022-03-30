@@ -21,6 +21,7 @@ class Character extends FlxSprite
 	public var isPlayer:Bool = false;
 	public var curCharacter:String = 'bf';
 	public var barColor:FlxColor;
+	public var charName:String = 'bf';
 
 	public var holdTimer:Float = 0;
 
@@ -117,6 +118,7 @@ class Character extends FlxSprite
 					animNext[anim.name] = anim.nextAnim;
 			}
 
+		this.charName = data.name;
 		this.replacesGF = data.replacesGF == null ? false : data.replacesGF;
 		this.hasTrail = data.hasTrail == null ? false : data.hasTrail;
 		this.isDancing = data.isDancing == null ? false : data.isDancing;

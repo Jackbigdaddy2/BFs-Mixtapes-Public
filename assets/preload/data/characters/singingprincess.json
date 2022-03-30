@@ -1,0 +1,23 @@
+{
+  "name": "Singing Princess",
+  "asset": "characters/Singing_Princess",
+  "barColor": "#FE2C3B",
+  "startingAnim": "danceRight",
+  "isDancing": true,
+  "holdLength": 4.1,
+  "replacesGF": true,
+  "animations": [
+    {
+      "name": "danceLeft",
+      "prefix": "Singing Princess Idle Dance",
+      "offsets": [0, 0],
+      "frameIndices": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    },
+    {
+      "name": "danceRight",
+      "prefix": "Singing Princess Idle Dance",
+      "offsets": [0, 0],
+      "frameIndices": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+    }
+  ]
+}

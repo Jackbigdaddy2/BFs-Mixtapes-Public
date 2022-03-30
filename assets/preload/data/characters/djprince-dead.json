@@ -1,0 +1,25 @@
+{
+  "name": "DJ Prince (Game Over)",
+  "asset": "characters/DJ_PrinceDEAD",
+  "barColor": "#6DBDFF",
+  "flipX": true,
+  "startingAnim": "firstDeath",
+  "animations": [
+    {
+      "name": "firstDeath",
+      "prefix": "DJ Prince Dies",
+      "offsets": [-450, 0]
+    },
+    {
+      "name": "deathLoop",
+      "prefix": "DJ Prince Dead Loop",
+      "offsets": [-450, 0],
+      "looped": true
+    },
+    {
+      "name": "deathConfirm",
+      "prefix": "DJ Prince Dead Confirm",
+      "offsets": [-450, 0]
+    }
+  ]
+}

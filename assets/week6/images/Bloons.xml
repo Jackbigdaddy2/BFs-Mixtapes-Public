@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Bloons.png">
+	<SubTexture name="Yellow Bloon0000" x="0" y="0" width="120" height="152"/>
+	<SubTexture name="Green Bloon0000" x="121" y="0" width="120" height="152"/>
+	<SubTexture name="Blue Bloon0000" x="241" y="0" width="120" height="152"/>
+	<SubTexture name="Red Bloon0000" x="361" y="0" width="120" height="152"/>
+</TextureAtlas>

@@ -1,0 +1,39 @@
+{
+  "name": "Harpsichorded",
+  "asset": "characters/Harp_assets",
+  "barColor": "#FE573F",
+  "startingAnim": "idle",
+  "camPos": [400, 0],
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "Harp Idle",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singUP",
+      "prefix": "Harp Up",
+      "offsets": [0, 4]
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "Harp Right",
+      "offsets": [93, -40]
+    },
+    {
+      "name": "singRIGHT-alt",
+      "prefix": "Harp Milk",
+      "offsets": [90, -40]
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "Harp Down",
+      "offsets": [-2, -18]
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "Harp Left",
+      "offsets": [255, 5]
+    }
+  ]
+}

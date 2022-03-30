@@ -229,11 +229,11 @@ class GameplayCustomizeState extends MusicBeatState
 
 		switch (stageCheck)
 		{
-			case 'limo':
+			case 'limo' | 'wainbowbwidge':
 				camFollow.x = boyfriend.getMidpoint().x - 300;
 			case 'mall':
 				camFollow.y = boyfriend.getMidpoint().y - 200;
-			case 'school' | 'schoolEvil':
+			case 'school' | 'schoolEvil' | 'blockshowcase' | 'blockshowcaseevil':
 				camFollow.x = boyfriend.getMidpoint().x - 300;
 				camFollow.y = boyfriend.getMidpoint().y - 300;
 		}
@@ -595,7 +595,7 @@ class GameplayCustomizeState extends MusicBeatState
 			{
 				case 0:
 					babyArrow.visible = !FlxG.save.data.middleScroll;
-					babyArrow.x += 20;
+					babyArrow.x += 20; //-= 20
 					cpuStrums.add(babyArrow);
 				case 1:
 					playerStrums.add(babyArrow);

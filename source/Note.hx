@@ -47,11 +47,20 @@ class Note extends FlxSprite
 
 	public var beat:Float = 0;
 
+	public static var mania:Int = 0; // 9 key
 	public static var swagWidth:Float = 160 * 0.7;
 	public static var PURP_NOTE:Int = 0;
 	public static var GREEN_NOTE:Int = 2;
 	public static var BLUE_NOTE:Int = 1;
 	public static var RED_NOTE:Int = 3;
+	public static var noteScale = 0.7; // 9 key
+
+	public static var noteScales:Array<Float> = [0.7, 0.5]; // 9 key
+	public static var noteWidths:Array<Float> = [112, 66.5];
+	public static var frameN:Array<Dynamic> = [
+		['purple', 'blue', 'green', 'red'],
+		['purple', 'blue', 'green', 'red', 'white', 'yellow', 'violet', 'darkred', 'dark'],
+	]; // end of 9 key
 
 	public var rating:String = "shit";
 
@@ -76,6 +85,14 @@ class Note extends FlxSprite
 
 		if (prevNote == null)
 			prevNote = this;
+
+		mania = 0; // 9 key
+		if (PlayState.SONG.mania != 0)
+		{
+			mania = PlayState.SONG.mania;
+			swagWidth = noteWidths[mania];
+			noteScale = noteScales[mania];
+		} // end of 9 key
 
 		beat = bet;
 
@@ -122,12 +139,12 @@ class Note extends FlxSprite
 		{
 			frames = PlayState.noteskinSprite;
 
-			for (i in 0...4)
+			for (i in 0...9) // (i in 0...4) // 9 key
 			{
-				animation.addByPrefix(dataColor[i] + 'Scroll', dataColor[i] + ' alone'); // Normal notes
-				animation.addByPrefix(dataColor[i] + 'hold', dataColor[i] + ' hold'); // Hold
-				animation.addByPrefix(dataColor[i] + 'holdend', dataColor[i] + ' tail'); // Tails
-			}
+				animation.addByPrefix(frameN[1][i] + 'Scroll', frameN[1][i] + '0'); // Normal notes
+				animation.addByPrefix(frameN[1][i] + 'hold', frameN[1][i] + ' hold piece'); // Hold
+				animation.addByPrefix(frameN[1][i] + 'holdend', frameN[1][i] + ' hold end'); // Tails
+			} // dataColor > frameN[1] for 9 key
 
 			setGraphicSize(Std.int(width * 0.7));
 			updateHitbox();
@@ -164,8 +181,65 @@ class Note extends FlxSprite
 
 					setGraphicSize(Std.int(width * CoolUtil.daPixelZoom));
 					updateHitbox();
-				default:
-					frames = PlayState.noteskinSprite;
+				case 'minecraftui':
+					loadGraphic(Paths.image('Minecraft_Button_Notes'), true, 17, 17);
+					if (isSustainNote)
+						loadGraphic(Paths.image('weeb/pixelUI/arrowEnds'), true, 7, 6);
+
+					for (i in 0...4)
+					{
+						animation.add(dataColor[i] + 'Scroll', [i + 4]); // Normal notes
+						animation.add(dataColor[i] + 'hold', [i]); // Holds
+						animation.add(dataColor[i] + 'holdend', [i + 4]); // Tails
+					}
+
+					setGraphicSize(Std.int(width * CoolUtil.daPixelZoom));
+					updateHitbox();
+				case 'minecraftuithick':
+					loadGraphic(Paths.image('Minecraft_Button_Notes_Thick'), true, 17, 17);
+					if (isSustainNote)
+						loadGraphic(Paths.image('weeb/pixelUI/arrowEnds'), true, 7, 6);
+
+					for (i in 0...4)
+					{
+						animation.add(dataColor[i] + 'Scroll', [i + 4]); // Normal notes
+						animation.add(dataColor[i] + 'hold', [i]); // Holds
+						animation.add(dataColor[i] + 'holdend', [i + 4]); // Tails
+					}
+
+					setGraphicSize(Std.int(width * CoolUtil.daPixelZoom));
+					updateHitbox();
+
+				case 'mondaynightmania':
+					loadGraphic(Paths.image('Minecraft_Notes'), true, 102, 102);
+					if (isSustainNote)
+						loadGraphic(Paths.image('weeb/pixelUI/arrowEnds'), true, 7, 6);
+
+					for (i in 0...4)
+					{
+						animation.add(dataColor[i] + 'Scroll', [i + 4]); // Normal notes
+						animation.add(dataColor[i] + 'hold', [i]); // Holds
+						animation.add(dataColor[i] + 'holdend', [i + 4]); // Tails
+					}
+				// case 'minecraft':
+				// 	frames = Paths.getSparrowAtlas('Minecraft_Notes');
+
+				// 	for (i in 0...4)
+				// 	{
+				// 		animation.addByPrefix(dataColor[i] + 'Scroll', dataColor[i] + ' alone'); // Normal notes
+				// 		animation.addByPrefix(dataColor[i] + 'hold', dataColor[i] + ' hold'); // Hold
+				// 		animation.addByPrefix(dataColor[i] + 'holdend', dataColor[i] + ' tail'); // Tails
+				// 	}
+
+				// 	setGraphicSize(Std.int(width * 0.7));
+				// 	updateHitbox();
+
+				// 	if(FlxG.save.data.antialiasing)
+				// 		{
+				// 			antialiasing = true;
+				// 		}
+				case 'jforce':
+					frames = Paths.getSparrowAtlas('noteskins/JForce', 'shared');
 
 					for (i in 0...4)
 					{
@@ -178,43 +252,71 @@ class Note extends FlxSprite
 					updateHitbox();
 
 					antialiasing = FlxG.save.data.antialiasing;
+				case 'xg':
+					loadGraphic(Paths.image('noteskins/XG', 'shared'), true, 17, 17);
+					if (isSustainNote)
+						loadGraphic(Paths.image('noteskins/XG-ends', 'shared'), true, 7, 6);
+
+					for (i in 0...4)
+					{
+						animation.add(dataColor[i] + 'Scroll', [i + 4]); // Normal notes
+						animation.add(dataColor[i] + 'hold', [i]); // Holds
+						animation.add(dataColor[i] + 'holdend', [i + 4]); // Tails
+					}
+
+					setGraphicSize(Std.int(width * CoolUtil.daPixelZoom));
+					updateHitbox();
+				default:
+					frames = PlayState.noteskinSprite;
+
+					for (i in 0...9) // (i in 0...4) // 9 key
+					{
+						animation.addByPrefix(frameN[1][i] + 'Scroll', frameN[1][i] + '0'); // Normal notes
+						animation.addByPrefix(frameN[1][i] + 'hold', frameN[1][i] + ' hold piece'); // Hold
+						animation.addByPrefix(frameN[1][i] + 'holdend', frameN[1][i] + ' hold end'); // Tails
+					} // dataColor > frameN[1] for 9 key
+
+					setGraphicSize(Std.int(width * noteScale)); // 0.7 > noteScale for 9 key
+					updateHitbox();
+
+					antialiasing = FlxG.save.data.antialiasing;
 			}
 		}
 
 		x += swagWidth * noteData;
-		animation.play(dataColor[noteData] + 'Scroll');
+		animation.play(frameN[mania][noteData] + 'Scroll'); // dataColor > frameN[mania] for 9 key
 		originColor = noteData; // The note's origin color will be checked by its sustain notes
 
-		if (FlxG.save.data.stepMania && !isSustainNote && !(PlayState.instance != null ? PlayState.instance.executeModchart : false))
-		{
-			var col:Int = 0;
-
-			var beatRow = Math.round(beat * 48);
-
-			// STOLEN ETTERNA CODE (IN 2002)
-
-			if (beatRow % (192 / 4) == 0)
-				col = quantityColor[0];
-			else if (beatRow % (192 / 8) == 0)
-				col = quantityColor[2];
-			else if (beatRow % (192 / 12) == 0)
-				col = quantityColor[4];
-			else if (beatRow % (192 / 16) == 0)
-				col = quantityColor[6];
-			else if (beatRow % (192 / 24) == 0)
-				col = quantityColor[4];
-			else if (beatRow % (192 / 32) == 0)
-				col = quantityColor[4];
-
-			animation.play(dataColor[col] + 'Scroll');
-			if (FlxG.save.data.rotateSprites)
+		/*if (FlxG.save.data.stepMania && !isSustainNote && !(PlayState.instance != null ? PlayState.instance.executeModchart : false))
 			{
-				localAngle -= arrowAngles[col];
-				localAngle += arrowAngles[noteData];
-				originAngle = localAngle;
-			}
-			originColor = col;
-		}
+				var col:Int = 0;
+
+				var beatRow = Math.round(beat * 48);
+
+				// STOLEN ETTERNA CODE (IN 2002)
+
+				if (beatRow % (192 / 4) == 0)
+					col = quantityColor[0];
+				else if (beatRow % (192 / 8) == 0)
+					col = quantityColor[2];
+				else if (beatRow % (192 / 12) == 0)
+					col = quantityColor[4];
+				else if (beatRow % (192 / 16) == 0)
+					col = quantityColor[6];
+				else if (beatRow % (192 / 24) == 0)
+					col = quantityColor[4];
+				else if (beatRow % (192 / 32) == 0)
+					col = quantityColor[4];
+
+				animation.play(dataColor[col] + 'Scroll');
+				if (FlxG.save.data.rotateSprites)
+				{
+					localAngle -= arrowAngles[col];
+					localAngle += arrowAngles[noteData];
+					originAngle = localAngle;
+				}
+				originColor = col;
+		}*/ // Commented for 9 key
 
 		// we make sure its downscroll and its a SUSTAIN NOTE (aka a trail, not a note)
 		// and flip it so it doesn't look weird.
@@ -239,7 +341,8 @@ class Note extends FlxSprite
 			originColor = prevNote.originColor;
 			originAngle = prevNote.originAngle;
 
-			animation.play(dataColor[originColor] + 'holdend'); // This works both for normal colors and quantization colors
+			animation.play(frameN[mania][originColor] +
+				'holdend'); // This works both for normal colors and quantization colors // dataColor > frameN[mania] for 9 key
 			updateHitbox();
 
 			x -= width / 2;
@@ -251,7 +354,7 @@ class Note extends FlxSprite
 
 			if (prevNote.isSustainNote)
 			{
-				prevNote.animation.play(dataColor[prevNote.originColor] + 'hold');
+				prevNote.animation.play(frameN[mania][prevNote.originColor] + 'hold'); // dataColor > frameN[mania] for 9 key
 				prevNote.updateHitbox();
 
 				prevNote.scale.y *= stepHeight / prevNote.height;

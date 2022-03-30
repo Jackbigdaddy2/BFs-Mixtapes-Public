@@ -1,2 +1,7 @@
 normal
 pixel
+mondaynightmania
+minecraftui
+minecraftuithick
+jforce
+xg
